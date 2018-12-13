@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+    <title>易点学车</title>
+    <meta name="description" content="Yan" />
+    <meta name="keywords" content="Yan" />
+    <meta name="author" content="Yan" />
+    <script src="../static/js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/js/custom1.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=DBd897f58d7a63e585485e3dea011253"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/default.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/examples.css">
+    <!-- Themes -->
+    <link rel="stylesheet" href="../static/css/bars-1to10.css">
+    <link rel="stylesheet" href="../static/css/bars-movie.css">
+    <link rel="stylesheet" href="../static/css/bars-square.css">
+    <link rel="stylesheet" href="../static/css/bars-pill.css">
+    <link rel="stylesheet" href="../static/css/bars-reversed.css">
+    <link rel="stylesheet" href="../static/css/bars-horizontal.css">
+
+    <link rel="stylesheet" href="../static/css/fontawesome-stars.css">
+    <link rel="stylesheet" href="../static/css/css-stars.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-stars.css">
+
+
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/swiper-3.4.1.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/new_add.css"/>
+<link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css"/>
+	</head>
+<body>
+<!--[if lt IE 9]>对不起，浏览器版本太低~！<![endif]-->
+<div class="container">
+    <div class="row mine">
+        <img src="" id="my_model"/>
+        <h1 id="nickname"></h1>
+    </div>
+
+    <div class="row manage">
+        <a class="col-xs-12" href="../user/study.html">
+            <img src="../static/images/czzn_icon.png" width="20" height="20" />
+            <p>学习中心</p>
+            <span></span>
+        </a>
+        <a class="col-xs-12"href="../user/feedback.html">
+            <i class="iconfont icon-xinfeng"></i>
+            <p>投诉建议</p>
+            <span></span>
+        </a>
+
+
+        <a class="col-xs-12" href="tel:02367303999">
+            <i class="iconfont icon-tubiaozhizuomoban"></i>
+            <p>联系客服</p>
+            <p style="position: absolute;right: 30px;" >023-67303999</p>
+            <span></span>
+        </a>
+        <a class="col-xs-12" href="../enlist/agreement.html">
+            <img src="../static/images/czzn_icon.png" width="20" height="20" />
+            <p>我的协议</p>
+            <span></span>
+        </a>
+
+
+
+
+
+        <a class="col-xs-12" href="../page/index.html?id=10">
+            <img src="../static/images/lilun_icon.png" width="20" height="20" />
+            <p>理论预约流程</p>
+            <span></span>
+        </a>
+        <a class="col-xs-12" href="../page/index.html?id=12">
+            <img src="../static/images/ks_icon.png" width="20" height="20" />
+            <p>约考缴费流程</p>
+            <span></span>
+        </a>
+
+
+
+        <!--
+        <a class="col-xs-12" href="/index.php?do=my_news">
+            <i class="iconfont icon-tubiaozhizuomoban"></i>
+            <p>我的消息</p>
+            <span></span>
+        </a>
+
+
+        <a class="col-xs-12" href="/index.php?do=my_order">
+            <i class="iconfont icon-iconfontwodedingdan"></i>
+            <p>我的订单</p>
+            <span></span>
+        </a>
+
+
+        <a class="col-xs-12" href="/index.php?do=my_setting">
+            <i class="iconfont icon-tubiaozhizuomoban"></i>
+            <p>个人设置</p>
+            <span></span>
+        </a>
+
+        <a class="col-xs-12" href="/index.php?do=myewm">
+            <img src="../static/images/qrcode1.png" width="20" height="20" />
+            <p>我的二维码</p>
+            <span></span>
+        </a>
+        <a class="col-xs-12"href="/index.php?do=coach_change">
+            <i class="iconfont icon-xinfeng"></i>
+            <p>教练更换申请</p>
+            <span></span>
+        </a>
+        <a class="col-xs-12" href="/index.php?do=new_detail&id=10">
+            <img src="../static/images/czzn_icon.png" width="20" height="20" />
+            <p>平台操作指南</p>
+            <span></span>
+        </a>-->
+
+    </div>
+
+    <div class="row kong"></div>
+
+    <div class="footer">
+        <a class="col-xs-4" href="../index/index.html">
+            <i class="iconfont icon-fangxiangpan"></i>
+            <p>首页</p>
+        </a>
+        <a class="col-xs-4"  href="../enlist/index.html">
+            <i class="iconfont icon-baoming"></i>
+            <p>报名</p>
+        </a>
+        <a class="col-xs-4 active" href="../user/index.html">
+            <i class="iconfont icon-wode"></i>
+            <p>我的</p>
+        </a>
+    </div>
+
+
+</div>
+
+<div class="container" id="model">
+    <div class="row">
+        <div class="modal-body">
+            <div>
+                <h1>请输入你的手机号</h1>
+                <input type="text" name="phone" />
+                <input id="btnSendCode" type="button" value="发送验证码" onclick="sendMessage()" />
+            </div>
+            <div>
+                <h1>请输入你的验证码</h1>
+                <input type="text" name="phone" />
+            </div>
+        </div>
+        <div class="modal-btn">
+            <a id="banck">返回</a>
+            <a>确定</a>
+        </div>
+    </div>
+</div>
+
+		<script src="../static/js/apiRoot.js" type="text/javascript" charset="utf-8"></script>
+		<script src="api.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		index()
+	})
+</script>
+</body>
+</html>
