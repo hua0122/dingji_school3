@@ -196,7 +196,7 @@ window.onresize = function() {
 };
 // 设置网页title
 function settitle() {
-	document.title = "鼎吉驾校";
+	document.title = "易点学车";
 
 }
 // 微信登录
