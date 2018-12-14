@@ -206,7 +206,7 @@ function wxlogin() {
 
 	} else {
 		if (window.location.href.indexOf("index/index.html") == -1) {
-			window.location.href = "http://bmqdtest.yidianxueche.cn";
+			window.location.href = "http://ydxc.yidianxueche.cn";
 		} else {
 			var openid = getQueryString("openid");
 			sessionStorage.setItem("openid", openid)
