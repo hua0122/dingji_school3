@@ -436,7 +436,6 @@ input[type=checkbox] {
 	border: none;
 	border-bottom: 1px solid #ccc;
 	width: 70%;
-	pointer-events: none;
 }
 
 .agreement .rowflex {

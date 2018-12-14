@@ -429,10 +429,10 @@ function agreement() {
 
 	let ajaxdata = {}
 	let data = ajaxGet(user_agreement, ajaxdata)
-	$(".yi-input").val(data.data.user.name);
-	$(".cno-input").val(data.data.user.card);
+	$(".yi-input").html(data.data.user.name);
+	$(".cno-input").html(data.data.user.card);
 	$(".content").html(data.data.content.content);
-	$(".class").val(data.data.grade.name + "c" + data.data.grade.type);
+	$(".class").html(data.data.grade.name + "c" + data.data.grade.type);
 
 
 }
