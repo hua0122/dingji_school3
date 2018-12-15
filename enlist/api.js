@@ -111,7 +111,6 @@ function get_list(city) {
 	};
 	let data = ajaxPost(sign_get_grade, ajaxdata)
 	let src = "";
-	alert("班别")
 
 	if (data.data != null && data.data.length != 0) {
 
