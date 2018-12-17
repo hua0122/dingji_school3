@@ -1,0 +1,211 @@
+.bg {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: url(../images/bg.jpg) no-repeat bottom;
+	background-size: 100% 100%;
+}
+
+.main {
+	position: absolute;
+	top: 0;
+	
+	width: 100%;
+	background: url(../images/popobg_02.png);
+}
+
+.main .top {
+	width: 100%;
+	position: relative;
+}
+
+.main .top img {
+	width: 100%;
+}
+
+.main .top .icon-top {
+	display: block;
+	width: 100%;
+}
+
+.main .top .logo-box {
+	position: absolute;
+	width: .75rem;
+	top: .15rem;
+	left: .1rem;
+}
+
+.main .top .login-box {
+	position: absolute;
+	width: .41rem;
+	top: .15rem;
+	right: .1rem;
+}
+
+.main .top .tule-box {
+	position: absolute;
+	width: .75rem;
+	top: .97rem;
+	left: 0;
+}
+
+.main .content {
+	width: 100%;
+	padding: .3rem .32rem;
+	box-sizing: border-box;
+}
+
+.main .content .mb22 {
+	margin-bottom: .3rem;
+}
+
+.main .content .item {
+	width: 100%;
+	border-radius: .05rem;
+	overflow: hidden;
+	box-shadow:0px 0px 18px 5px rgba(0,0,0,0.2);
+}
+
+.main .content .item .title {
+	width: 100%;
+	height: .43rem;
+	background: #f58846;
+	display: flex;
+}
+
+.main .content .item .title .left {
+	width: .64rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main .content .item .title .right {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+}
+
+.main .content .item .title .right dd {
+	width: 100%;
+	color: #fff;
+	font-size: .15rem;
+	line-height: .15rem;
+}
+
+.main .content .item .title .right dt {
+	width: 100%;
+	font-size: .08rem;
+	line-height: .08rem;
+	margin-top: .05rem;
+}
+
+.main .content .item .item-con {
+	width: 100%;
+	background: #cf6f3f;
+}
+
+.main .content .item .item-con .leftright {
+	display: flex;
+	justify-content: space-between;
+	padding: .15rem 0;
+	box-sizing: border-box;
+}
+.leftrighttext{
+	padding: .15rem;
+	box-sizing: border-box;
+}
+.main .content .item .item-con .leftright .btn {
+	width: .985rem;
+	height: .39rem;
+	background: url(../images/btn-bg.png) no-repeat center;
+	background-size: .985rem .39rem;
+	margin-right: .075rem;
+	text-align: center;
+	line-height: .39rem;
+	font-size: .24rem;
+	letter-spacing: .04rem;
+}
+
+.main .content .item .item-con .leftright .text {
+	padding-left: .15rem;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.main .content .item .item-con .leftright .text dd {
+	width: 100%;
+	font-size: .2rem;
+	line-height: .2rem;
+}
+
+.main .content .item .item-con .leftright .text dt {
+	width: 100%;
+	font-size: .15rem;
+	line-height: .15rem;
+
+}
+
+.culmn {
+	padding: 0 .15rem .1rem .15rem;
+	box-sizing: border-box;
+	font-size: .125rem;
+}
+
+.culmn .tab-tit {
+	height: .2rem;
+	line-height: .125rem;
+}
+
+.culmn .row {
+	line-height: .2rem;
+}
+
+.title-1 {
+	width: .6rem;
+}
+
+.title-2 {
+	width: .35rem;
+	height: .38rem;
+}
+
+.title-3 {
+	width: .4rem;
+	height: .37rem;
+}
+
+.title-4 {
+	width: .42rem;
+	height: .32rem;
+}
+
+.title-5 {
+	width: .31rem;
+	height: .37rem;
+}
+
+.youhui-tis {
+	width: 2.84rem;
+	height: 2.32rem;
+	background: url(../images/youhui-tis.png) no-repeat center;
+	background-size: 100% 100%;
+	margin: auto;
+	position: relative;
+}
+
+.youhui-tis .text {
+	width: 1.3rem;
+	position: absolute;
+	font-size: .20rem;
+	top: .55rem;
+	left: .5rem;
+	/* -webkit-text-stroke: .005rem #792312;
+	text-fill-color:#fded1f */
+}
