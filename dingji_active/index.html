@@ -234,6 +234,8 @@
 			$(function() {
 				if (sessionStorage.getItem("openid") != null && sessionStorage.getItem("openid") != undefined && sessionStorage.getItem(
 						"openid") != "null" && sessionStorage.getItem("openid") != "") {
+					
+				}else{
 					var openid = getQueryString("openid");
 					sessionStorage.setItem("openid", openid)
 				}
