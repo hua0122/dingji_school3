@@ -56,6 +56,7 @@ function login(ajaxdata) {
 		$(".iframe-popo").hide(1);
 		$(".total_amount").html(data.data.total_amount)
 		window.location.reload();
+		$("#recomphone").val("");
 	} else {
 		alert(data.msg, " ")
 	}
@@ -71,6 +72,7 @@ function toLogin() {
 // 个人信息
 function info() {
 	let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+	
 	let ajaxdata = {
 		tel: userInfo.tel,
 	}
