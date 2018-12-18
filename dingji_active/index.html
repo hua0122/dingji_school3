@@ -232,6 +232,11 @@
 
 			}
 			$(function() {
+				// 				if (sessionStorage.getItem("openid") != null && sessionStorage.getItem("openid") != undefined && sessionStorage.getItem(
+				// 						"openid") != "null" && sessionStorage.getItem("openid") != "") {
+				// 					var openid = getQueryString("openid");
+				// 					sessionStorage.setItem("openid", openid)
+				// 				}
 				// 根据邀请人id获取电话号码
 				get_tel();
 				if (userInfo == null || userInfo == "" || userInfo == "null" || userInfo == undefined || userInfo == "undefined") {} else {
@@ -260,7 +265,13 @@
 
 					// 预存
 					$(".ycbtn").click(function() {
-						prestore();
+						let openid = sessionStorage.getItem("openid");
+						console.log(11)
+						if (openid == null || openid == "" || openid == "null" || openid == undefined || openid == "undefined") {
+							window.location.href = domainName + "/api/user/getwxinfo_ydxc"
+						} else {
+							prestore();
+						}
 					})
 					// 邀请
 					$(".yqbtn").click(function() {
@@ -304,10 +315,20 @@
 						alert("请输入正确的电话号码", " ");
 						return;
 					}
+					let yaoqing_id = getQueryString("yaoqing_id"),
+						id = "";
+					if (yaoqing_id != null || yaoqing_id != "" || yaoqing_id != "null" || yaoqing_id != undefined || yaoqing_id !=
+						"undefined") {
+						id = yaoqing_id;
+					} else {
+						id = getQueryString("fenxiang_id");
+
+					}
 					let ajaxdata = {
 						tel: recomphone,
 						code: recomcode,
-						school_id: school_id
+						school_id: school_id,
+						id: id
 					}
 					login(ajaxdata);
 				})

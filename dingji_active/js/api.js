@@ -130,13 +130,14 @@ function prestore() {
 		"undefined") {
 		id = yaoqing_id;
 	} else {
-		id = getQueryString("id");
+		id = getQueryString("fenxiang_id");
 
 	}
 	let ajaxdata = {
 		amount: 100,
 		tel: userInfo.tel,
-		id: getQueryString("id")
+		id: id,
+		openid: sessionStorage.getItem("openid")
 	}
 	let data = ajaxPost(activity_prestore, ajaxdata);
 	if (data.status == "200") {
