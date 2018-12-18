@@ -1,7 +1,7 @@
 // 域名地址
 let domainName = "http://admin.yidianxueche.cn";
 // 学校id
-let school_id = 1;
+let school_id = 6;
 // 获取保存的经纬度
 let latlng = JSON.parse(sessionStorage.getItem("latlng"));
 
