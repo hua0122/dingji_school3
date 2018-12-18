@@ -80,11 +80,27 @@
 
 .main .top .login-box {
 	position: absolute;
-	width: .41rem;
+	width: 1rem;
 	top: .15rem;
 	right: .1rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
 }
-
+.main .top .login-box .username{
+	color: #ee9314;
+}
+.main .top .login-box .img{
+	
+	width: .41rem;
+	height: .225rem;
+	background: url(../images/login-icon.png) no-repeat center;
+	background-size: 100% 100%;
+	text-align: center;
+	line-height: .225rem;
+	color: #fff;
+	font-size: .12rem;
+}
 .main .top .tule-box {
 	position: absolute;
 	width: .75rem;
