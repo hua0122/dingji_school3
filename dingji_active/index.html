@@ -3,13 +3,34 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no, email=no" />
 		<link rel="stylesheet" type="text/css" href="css/public.css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/share.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/layer.css" />
 		<title>活动首页</title>
+		<style type="text/css">
+			.layui-m-layerchild {
+				background: #fff;
+			}
+
+			.share_title {
+				text-align: center;
+				line-height: .5rem;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="bg">
 
+		</div>
+		<div class="open-popo">
+			<div class="op-bg">
+				<span class="phone "></span>
+			</div>
+			<div class="op-btn">我知道了</div>
 		</div>
 		<div class="main">
 			<div class="top">
@@ -38,10 +59,10 @@
 					<div class="item-con">
 						<div class="leftright">
 							<div class="text fontcolorfded1f">
-								<dd>-300¥</dd>
+								<dd>-<span class="ycmoney"></span>¥</dd>
 								<dt></dt>
 							</div>
-							<div class="btn fontcolor792312">预存</div>
+							<div class="btn fontcolor792312 toLogin ycbtn">预存</div>
 						</div>
 					</div>
 				</div>
@@ -58,76 +79,83 @@
 					<div class="item-con">
 						<div class="leftright">
 							<div class="text fontcolorfded1f">
-								<dd>-100¥</dd>
+								<dd>-<span class="fxmoney"></span>¥</dd>
 								<dt>获赠500元代金券</dt>
 							</div>
-							<div class="btn fontcolor792312">分享</div>
+							<div class="btn fontcolor792312 toLogin fxbtn">分享</div>
 						</div>
 					</div>
 				</div>
-				
-					<div class="item mb22">
-						<div class="title">
-							<div class="left">
-								<img class="title-3" src="images/title-3.png">
-							</div>
-							<div class="right ">
-								<dd>邀好友享零元学车</dd>
-								<dt class="fontcolor792312">邀请一名好友预存并报名可再享¥100优惠</dt>
-							</div>
+
+				<div class="item mb22">
+					<div class="title">
+						<div class="left">
+							<img class="title-3" src="images/title-3.png">
 						</div>
-						<div class="item-con">
-							<div class="leftright">
-								<div class="text fontcolorfded1f">
-									<dd>15人/-1500¥</dd>
-									<dt></dt>
-								</div>
-								<div class="btn fontcolor792312">邀请</div>
+						<div class="right ">
+							<dd>邀好友享零元学车</dd>
+							<dt class="fontcolor792312">邀请一名好友预存并报名可再享¥100优惠</dt>
+						</div>
+					</div>
+					<div class="item-con">
+						<div class="leftright">
+							<div class="text fontcolorfded1f">
+								<dd><span class="yqnum">0</span>人/-<span class="yqmoney">0</span>¥</dd>
+								<dt></dt>
 							</div>
-							<div class="culmn fontcolorfded1f">
-								<div class="tab-tit">邀请用户名单：</div>
-								<div class="row">张*李 159****2385</div>
-								<div class="row">张*李 159****2385</div>
-								<div class="row">张*李 159****2385</div>
-								<div class="row">张*李 159****2385</div>
+							<div class="btn fontcolor792312 toLogin yqbtn">邀请</div>
+						</div>
+						<div class="culmn fontcolorfded1f">
+							<div class="tab-tit">邀请用户名单：</div>
+							<div class="row-box">
 							</div>
 						</div>
 					</div>
-					<div class="youhui-tis mb22">
-						<div class="text fontcolor792312">您共获得了1900元优惠!</div>
-					</div>
-					<div class="item mb22">
-						<div class="title">
-							<div class="left">
-								<img class="title-4" src="images/title-4.png">
-							</div>
-							<div class="right ">
-								<dd></dd>
-								<dt class="fontcolor792312"></dt>
-							</div>
+				</div>
+				<div class="youhui-tis mb22">
+					<div class="text fontcolor792312">您共获得了<span class="total_amount">0</span>元优惠!</div>
+				</div>
+				<div class="item mb22">
+					<div class="title">
+						<div class="left">
+							<img class="title-4" src="images/title-4.png">
 						</div>
-						<div class="item-con">
-							<div class="leftrighttext fontcolorfded1f">
-								晚上飞机哈雷如何发力惹纠纷卡死了没能力承担的层面来看每次晚上  
-							</div>
+						<div class="right ">
+							<dd>活动规则</dd>
+							<dt class="fontcolor792312"></dt>
 						</div>
 					</div>
-					<div class="item mb22">
-						<div class="title">
-							<div class="left">
-								<img class="title-5" src="images/title-5.png">
-							</div>
-							<div class="right ">
-								<dd>时间节点：</dd>
-								<dt class="fontcolor792312"></dt>
-							</div>
-						</div>
-						<div class="item-con">
-							<div class="leftrighttext fontcolorfded1f">
-								晚上飞机哈雷如何发力惹纠纷卡死了没能力承担的层面来看每次晚上  
-							</div>
+					<div class="item-con">
+						<div class="leftrighttext fontcolorfded1f">
+							1. 预估12月20开始进行推广,前100名100元预存,101-200名150元预存,201-300名200元预存,以此类推,300元封顶<br />
+							2. 所有优惠将在报名时作为现金抵扣体现或者报名之后进行金额返费，不可兑现，未报名无法领取。<br />
+							3. 中奖奖品未报名无法领取。<br />
+							4. 预存之后不支持退费，但是可以转让，享受同等优惠。<br />
+							5. 报名学员如需退学，需将活动优惠金额进行扣除。<br />
+							6. 此活动最终解释权归主办方所有，如有变动，请留意活动页面、电话、短信通知。<br />
+
 						</div>
 					</div>
+				</div>
+				<div class="item mb22">
+					<div class="title">
+						<div class="left">
+							<img class="title-5" src="images/title-5.png">
+						</div>
+						<div class="right ">
+							<dd>时间节点：</dd>
+							<dt class="fontcolor792312"></dt>
+						</div>
+					</div>
+					<div class="item-con">
+						<div class="leftrighttext fontcolorfded1f">
+							1. 预存截止时间为2019年2月25日。<br />
+							2. 预存学员报名截止时间为2019年3月20日，过期预存作废。<br />
+							3. 奖品领取截止时间为2019年3月31日。<br />
+
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="iframe-popo login">
@@ -136,7 +164,7 @@
 						<div class="input-row">
 							<input type="text" id="recomphone" class="input" placeholder="手机号">
 						</div>
-						
+
 						<div class="item">
 							<div class="left">
 								<div class="input-row">
@@ -149,30 +177,85 @@
 								</div>
 							</div>
 						</div>
-				</span></div>
+					</span></div>
 				<div class="btn">
-					<span class="ok">登录</span>
+					<span class="ok loginbtn">登录</span>
 					<span class="close">取消</span>
 				</div>
 			</div>
 		</div>
+		<div id="share_box" style="display:none;">
+			<h1 class="share_title">分享到</h1>
+
+		</div>
+		<div id="Invitation_box" style="display:none;">
+			<h1 class="share_title">邀请小伙伴来参加0元学车啦</h1>
+
+		</div>
 		<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/alert.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/apiRoot.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/api.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/reg.js" type="text/javascript" charset="utf-8"></script>
+		<!-- <script src="js/navigator.js" type="text/javascript" charset="utf-8"></script> -->
 		<script type="text/javascript">
-			$(function(){
-				$(".login").click(function(){
+			let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+			if (userInfo == null || userInfo == "" || userInfo == "null" || userInfo == undefined || userInfo == "undefined") {} else {
+				let fenxiang_src = '<div class="social-share" data-initialized="true" style="text-align: center;" data-url="' +
+					window.location.href + "?fenxiang_id=" + userInfo.id +
+					'" data-title="助我抽奖" data-description="aaa"  data-image="http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg">' +
+					'<a href="#" class="social-share-icon icon-qzone"></a>' +
+					'</div>';
+				$("#share_box").append(fenxiang_src);
+				let yaoqing_src = '<div class="social-share" data-initialized="true" style="text-align: center;" data-url="' +
+					window.location.href + "?yaoqing_id=" + userInfo.id +
+					'" data-title="邀请小伙伴来参加0元学车" data-image="http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg">' +
+					'<a href="#" class="social-share-icon icon-wechat"></a>' +
+					'<a href="#" class="social-share-icon icon-qq"></a>' +
+					'<a href="#" class="social-share-icon icon-qzone"></a>' +
+					'</div>';
+				$("#Invitation_box").append(yaoqing_src);
+				var $config = {
+					title: '你好,美食',
+					description: '我在你好美食,分享吃货间的快乐,现在邀请你的加入~快来和我一起分享美食吧~',
+					url: window.location.href + "?yaoqing_id=" + userInfo.id,
+					source: window.location.href + "?yaoqing_id=" + userInfo.id,
+					image: 'http://hellofood.fun/webicon.png',
+					// summary : '吃货召唤', //相当于description
+					// sites   : ['qzone', 'qq', 'weibo','wechat', 'douban'], // 启用的站点
+					disabled: ['google', 'facebook', 'twitter', 'linyin'], // 禁用的站点
+					wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
+					wechatQrcodeHelper: '立即下载发送专属二维码,邀请朋友加入',
+				};
+
+				socialShare('.social-share', $config);
+			}
+			$(function() {
+
+				// 根据邀请人id获取电话号码
+				get_tel();
+
+				// 邀请列表
+				invite_list()
+				// 个人信息
+				info();
+				// 查看是否可以抽奖
+				let chancedata = chance();
+				if (chancedata.data.is_share == 0) {
+					$(".fxbtn").html("分享");
+				} else {
+					$(".fxbtn").html("去抽奖");
+				}
+				$(".op-btn").click(function() {
+					$(".open-popo").hide(1);
+				})
+				$(".login").click(function() {
 					$(".iframe-popo").show();
 				})
-				$(".close").on("click",function(){
+				$(".close").on("click", function() {
 					$(".iframe-popo").hide(1);
 				})
-				$(".ok").on("click",function(){
-					$(".iframe-popo").hide(1);
-				})
+				// 获取验证码
 				$(".codebtn").click(function() {
 					let recomphone = $("#recomphone").val();
 					if (recomphone == "" || recomphone == null || recomphone == undefined || recomphone == "null" || recomphone ==
@@ -184,9 +267,64 @@
 						alert("请输入正确的电话号码", " ");
 						return;
 					}
-					num();
+					sent_msg(recomphone)
+				})
+				// 登录
+				$(".loginbtn").click(function() {
+					let recomphone = $("#recomphone").val();
+					let recomcode = $("#recomcode").val();
+					if (recomphone == "" || recomphone == null || recomphone == undefined || recomphone == "null" || recomphone ==
+						"undefined") {
+						alert("电话号码不能为空", " ");
+						return;
+					}
+					if (!regList.phone.test(recomphone)) {
+						alert("请输入正确的电话号码", " ");
+						return;
+					}
+					let ajaxdata = {
+						tel: recomphone,
+						code: recomcode,
+						school_id: school_id
+					}
+					login(ajaxdata);
+				})
+
+				$(".toLogin").click(function() {
+					toLogin();
+				})
+				// 预存
+				$(".ycbtn").click(function() {
+					prestore();
+				})
+				// 分享
+				$(".fxbtn").click(function() {
+
+					if (chancedata.data.is_share == 0) {
+						share();
+					} else {
+						window.location.href = "Luckdraw.html";
+					}
+					// 					var url = 'mqq://';
+					// 					window.location.href = url;
+
+					// 					do_share();
+					// 					downloadIamge('.codeImg','1.jpg')
+				})
+				// 邀请
+				$(".yqbtn").click(function() {
+					do_Invitation();
+					invite();
+				})
+				// 活动规则
+				$(".tule-box").click(function() {
+					document.documentElement.scrollTop = 1214;
+					document.body.scrollTop = 1214;
 				})
 			})
 		</script>
+
+		<script src="js/social-share.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/layer.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>
