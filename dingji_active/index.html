@@ -38,7 +38,8 @@
 					<img class="logo" src="images/logo.png">
 				</div>
 				<div class="login-box">
-					<img class="login" src="images/login-icon.png">
+					<span class="username"></span>
+					<div class="login img">登录</div>
 				</div>
 				<div class="tule-box">
 					<img src="images/active-rule.png">
@@ -186,60 +187,56 @@
 		</div>
 		<div id="share_box" style="display:none;">
 			<h1 class="share_title">分享到</h1>
-
+			<div class="social-share" data-initialized="true" style="text-align: center;">
+				<a href="#" class="social-share-icon icon-qzone"></a>
+			</div>
 		</div>
 		<div id="Invitation_box" style="display:none;">
 			<h1 class="share_title">邀请小伙伴来参加0元学车啦</h1>
-
+			<div class="social-share" data-initialized="true" style="text-align: center;">
+				<a href="#" class="social-share-icon icon-wechat"></a>
+				<a href="#" class="social-share-icon icon-qq"></a>
+				<a href="#" class="social-share-icon icon-qzone"></a>
+			</div>
 		</div>
 		<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/apiRoot.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/api.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/reg.js" type="text/javascript" charset="utf-8"></script>
-		<!-- <script src="js/navigator.js" type="text/javascript" charset="utf-8"></script> -->
+		<script src="js/social-share.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.share.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 			if (userInfo == null || userInfo == "" || userInfo == "null" || userInfo == undefined || userInfo == "undefined") {} else {
-				let fenxiang_src = '<div class="social-share" data-initialized="true" style="text-align: center;" data-url="' +
-					window.location.href + "?fenxiang_id=" + userInfo.id +
-					'" data-title="助我抽奖" data-description="aaa"  data-image="http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg">' +
-					'<a href="#" class="social-share-icon icon-qzone"></a>' +
-					'</div>';
-				$("#share_box").append(fenxiang_src);
-				let yaoqing_src = '<div class="social-share" data-initialized="true" style="text-align: center;" data-url="' +
-					window.location.href + "?yaoqing_id=" + userInfo.id +
-					'" data-title="邀请小伙伴来参加0元学车" data-image="http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg">' +
-					'<a href="#" class="social-share-icon icon-wechat"></a>' +
-					'<a href="#" class="social-share-icon icon-qq"></a>' +
-					'<a href="#" class="social-share-icon icon-qzone"></a>' +
-					'</div>';
-				$("#Invitation_box").append(yaoqing_src);
-				var $config = {
+				var $fenxiang_srcconfig = {
+					title: '你好,美食',
+					description: '我在你好美食,分享吃货间的快乐,现在邀请你的加入~快来和我一起分享美食吧~',
+					url: window.location.href + "?fenxiang_id=" + userInfo.id,
+					source: window.location.href + "?fenxiang_id=" + userInfo.id,
+					image: 'http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg',
+				};
+
+				socialShare('#share_box .social-share', $fenxiang_srcconfig);
+				var $yaoqing_srcconfig = {
 					title: '你好,美食',
 					description: '我在你好美食,分享吃货间的快乐,现在邀请你的加入~快来和我一起分享美食吧~',
 					url: window.location.href + "?yaoqing_id=" + userInfo.id,
 					source: window.location.href + "?yaoqing_id=" + userInfo.id,
-					image: 'http://hellofood.fun/webicon.png',
-					// summary : '吃货召唤', //相当于description
-					// sites   : ['qzone', 'qq', 'weibo','wechat', 'douban'], // 启用的站点
-					disabled: ['google', 'facebook', 'twitter', 'linyin'], // 禁用的站点
-					wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
-					wechatQrcodeHelper: '立即下载发送专属二维码,邀请朋友加入',
+					image: 'http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg',
 				};
 
-				// socialShare('.social-share', $config);
+				socialShare('#Invitation_box .social-share', $yaoqing_srcconfig);
+
 			}
 			$(function() {
 				// 根据邀请人id获取电话号码
 				get_tel();
 				if (userInfo == null || userInfo == "" || userInfo == "null" || userInfo == undefined || userInfo == "undefined") {} else {
-					
-					
-
+					$(".username").html(userInfo.tel.replace(userInfo.tel.substring(3, 7), '****'))
 					// 个人信息
 					info();
-
 					// 邀请列表
 					invite_list()
 					// 查看是否可以抽奖
@@ -259,7 +256,7 @@
 							window.location.href = "Luckdraw.html";
 						}
 					})
-					
+
 					// 预存
 					$(".ycbtn").click(function() {
 						prestore();
@@ -325,7 +322,5 @@
 			})
 		</script>
 
-		<script src="js/social-share.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/layer.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

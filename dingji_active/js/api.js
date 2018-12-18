@@ -18,6 +18,8 @@ let activity_invite = "/api/activity/invite";
 let activity_luck = "/api/activity/luck";
 // 判断是否可以抽奖
 let activity_chance = "/api/activity/chance";
+// 中奖数据
+let activity_luck_list = "/api/activity/luck_list";
 
 // 根据邀请人id获取电话号码
 function get_tel() {
@@ -26,7 +28,7 @@ function get_tel() {
 	}
 	let data = ajaxPost(activity_get_tel, ajaxdata);
 	if (data.status == "200") {
-		$(".open-popo").css("display","flex");
+		$(".open-popo").css("display", "flex");
 		$(".phone").html(data.data.tel)
 	}
 }
@@ -72,7 +74,7 @@ function toLogin() {
 // 个人信息
 function info() {
 	let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-	
+
 	let ajaxdata = {
 		tel: userInfo.tel,
 	}
@@ -178,6 +180,8 @@ function luck() {
 				alert(data.data.prize);
 			}
 		});
+	}else{
+		alert(data.msg)
 	}
 }
 // 查看是否可以抽奖
@@ -191,6 +195,17 @@ function chance() {
 	return data;
 }
 
+function luck_list() {
+	let ajaxdata = {}
+	let data = ajaxPost(activity_luck_list, ajaxdata);
+	if (data.status == "200") {
+		let src = "";
+		for (var i = 0; i < data.data.length; i++) {
+			src += '<div class="row">'+data.data[i].tel+'抽中'+data.data[i].luck_name+'</div>';
+		}
+		$(".luck").html(src);
+	}
+}
 //分享弹出页面层
 function do_share() {
 	layer.open({
@@ -199,6 +214,20 @@ function do_share() {
 		anim: 'up',
 		style: 'position:fixed; bottom:0; left:0; width: 100%; padding:10px 0; border:none;'
 	});
+	var $config = {
+		title: '你好,美食',
+		description: '我在你好美食,分享吃货间的快乐,现在邀请你的加入~快来和我一起分享美食吧~',
+		url: window.location.href + "?yaoqing_id=" + userInfo.id,
+		source: window.location.href + "?yaoqing_id=" + userInfo.id,
+		image: 'http://hellofood.fun/webicon.png',
+		// summary : '吃货召唤', //相当于description
+		// sites   : ['qzone', 'qq', 'weibo','wechat', 'douban'], // 启用的站点
+		disabled: ['google', 'facebook', 'twitter', 'linyin'], // 禁用的站点
+		wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
+		wechatQrcodeHelper: '立即下载发送专属二维码,邀请朋友加入',
+	};
+
+	socialShare('.social-share', $config);
 	alert("分享后需要小伙伴浏览您的分享链接才可以抽奖哟！")
 }
 //邀请弹出页面层
@@ -211,41 +240,4 @@ function do_Invitation() {
 		anim: 'up',
 		style: 'position:fixed; bottom:0; left:0; width: 100%; padding:10px 0; border:none;'
 	});
-}
-
-function openApp() {
-	// 安卓：
-
-	var state = null;
-	try {
-		if (scheme != '') {
-			openIframe.src = '[scheme]://[host]/[openwith]';
-		}
-	} catch (e) {}
-	if (state) {
-		window.close();
-	} else {
-		location.href = '下载地址';
-	}
-
-	// 苹果：
-
-	if (scheme != '') {
-		window.location.href = '[scheme]://';
-	}
-}
-
-function downloadIamge(selector, name) {
-	// 通过选择器获取img元素，
-	var img = document.querySelector(selector)
-	// 将图片的src属性作为URL地址
-	var url = img.src
-	var a = document.createElement('a')
-	var event = new MouseEvent('click')
-
-	a.download = name || '下载图片名称'
-	a.href = url
-
-	a.dispatchEvent(event)
-	alert(1)
 }
