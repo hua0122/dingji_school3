@@ -231,20 +231,44 @@
 				// socialShare('.social-share', $config);
 			}
 			$(function() {
-
 				// 根据邀请人id获取电话号码
 				get_tel();
+				if (userInfo == null || userInfo == "" || userInfo == "null" || userInfo == undefined || userInfo == "undefined") {} else {
+					
+					
 
-				// 邀请列表
-				invite_list()
-				// 个人信息
-				info();
-				// 查看是否可以抽奖
-				let chancedata = chance();
-				if (chancedata.data.is_share == 0) {
-					$(".fxbtn").html("分享");
-				} else {
-					$(".fxbtn").html("去抽奖");
+					// 个人信息
+					info();
+
+					// 邀请列表
+					invite_list()
+					// 查看是否可以抽奖
+					let chancedata = chance();
+					if (chancedata.data.is_share == 0) {
+						$(".fxbtn").html("分享");
+					} else {
+						$(".fxbtn").html("去抽奖");
+					}
+
+					// 分享
+					$(".fxbtn").click(function() {
+
+						if (chancedata.data.is_share == 0) {
+							share();
+						} else {
+							window.location.href = "Luckdraw.html";
+						}
+					})
+					
+					// 预存
+					$(".ycbtn").click(function() {
+						prestore();
+					})
+					// 邀请
+					$(".yqbtn").click(function() {
+						do_Invitation();
+						invite();
+					})
 				}
 				$(".op-btn").click(function() {
 					$(".open-popo").hide(1);
@@ -292,29 +316,6 @@
 
 				$(".toLogin").click(function() {
 					toLogin();
-				})
-				// 预存
-				$(".ycbtn").click(function() {
-					prestore();
-				})
-				// 分享
-				$(".fxbtn").click(function() {
-
-					if (chancedata.data.is_share == 0) {
-						share();
-					} else {
-						window.location.href = "Luckdraw.html";
-					}
-					// 					var url = 'mqq://';
-					// 					window.location.href = url;
-
-					// 					do_share();
-					// 					downloadIamge('.codeImg','1.jpg')
-				})
-				// 邀请
-				$(".yqbtn").click(function() {
-					do_Invitation();
-					invite();
 				})
 				// 活动规则
 				$(".tule-box").click(function() {
