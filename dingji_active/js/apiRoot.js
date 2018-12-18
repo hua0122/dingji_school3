@@ -1,5 +1,5 @@
 // 域名地址
-let domainName = "http://ceshi.yidianxueche.cn";
+let domainName = "http://admin.yidianxueche.cn";
 // 学校id
 let school_id = 1;
 // 获取保存的经纬度
@@ -64,3 +64,10 @@ function num() {
 		clearInterval(setter)
 	}, 61000)
 };
+// 获取url有效信息
+function getQueryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) return unescape(r[2]);
+	return null;
+}

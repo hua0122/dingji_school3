@@ -18,8 +18,10 @@
 				<div class="box-bg">
 					
 					<div class="box">
-						<div id="disk"></div>
-						<div id="start"><img src="images/turntable-ok.png" id="startbtn"></div>
+						<div id="start">
+							<img src="images/turntable-j.png" id="turntable" >
+						</div>
+						<div id="disk"><img src="images/turntable-ok.png" id="startbtn"></div>
 					</div>
 				</div>
 				<div class="luck-box">
@@ -37,25 +39,15 @@
 		<script src="js/jQueryRotate.2.2.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.easing.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/apiRoot.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/api.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function() {
 				$("#startbtn").rotate({
 					bind: {
 						click: function() {
-							var random = Math.floor(Math.random() * 360); //生成随机数  
-							$(this).rotate({
-								duration: 3000,
-								//转动时间间隔（速度单位ms）  
-								angle: 0,
-								//指针开始角度  
-								animateTo: 3600 + random,
-								//转动角度，当转动角度到达3600+random度时停止转动。 
-								easing: $.easing.easeOutSine,
-								//easing动画效果 
-								callback: function() { //回调函数  
-									alert('恭喜您，中奖了！');
-								}
-							});
+							luck();
+							
 						}
 					}
 				});

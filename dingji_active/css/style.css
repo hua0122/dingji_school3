@@ -9,7 +9,46 @@
 	background: url(../images/bg.jpg) no-repeat bottom;
 	background-size: 100% 100%;
 }
-
+.open-popo{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,0.5);
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	z-index: 999;
+	display: none;
+}
+.open-popo .op-bg{
+	width: 2.54rem;
+	height: 1.735rem;
+	background: url(../images/open-popo.png) no-repeat center;
+	background-size: 100% 100%;
+	position: relative;
+	
+}
+.open-popo .op-bg .phone{
+	position: absolute;
+	top: .25rem;
+	left: .85rem;
+	color: #ee9314;
+	font-size: .165rem;
+}
+.open-popo .op-btn{
+	width: 2.15rem;
+	height: .275rem;
+	background: url(../images/frame-btn.png) no-repeat center;
+	background-size: 100% 100%;
+	margin-top: .3rem;
+	color: #fff;
+	font-size: .15rem;
+	text-align: center;
+	line-height: .26rem;
+}
 .main {
 	position: absolute;
 	top: 0;
@@ -162,8 +201,13 @@
 	height: .2rem;
 	line-height: .125rem;
 }
-
+.culmn .row-box{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
 .culmn .row {
+	width: 50%;
 	line-height: .2rem;
 }
 
