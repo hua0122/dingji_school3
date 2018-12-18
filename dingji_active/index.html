@@ -232,11 +232,11 @@
 
 			}
 			$(function() {
-				// 				if (sessionStorage.getItem("openid") != null && sessionStorage.getItem("openid") != undefined && sessionStorage.getItem(
-				// 						"openid") != "null" && sessionStorage.getItem("openid") != "") {
-				// 					var openid = getQueryString("openid");
-				// 					sessionStorage.setItem("openid", openid)
-				// 				}
+				if (sessionStorage.getItem("openid") != null && sessionStorage.getItem("openid") != undefined && sessionStorage.getItem(
+						"openid") != "null" && sessionStorage.getItem("openid") != "") {
+					var openid = getQueryString("openid");
+					sessionStorage.setItem("openid", openid)
+				}
 				// 根据邀请人id获取电话号码
 				get_tel();
 				if (userInfo == null || userInfo == "" || userInfo == "null" || userInfo == undefined || userInfo == "undefined") {} else {
