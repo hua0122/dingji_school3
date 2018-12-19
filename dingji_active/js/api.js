@@ -269,3 +269,16 @@ function do_Invitation() {
 		style: 'position:fixed; bottom:0; left:0; width: 100%; padding:10px 0; border:none;'
 	});
 }
+function downloadIamge(selector, name) {
+    // 通过选择器获取img元素，
+    var img = document.querySelector(selector)
+    // 将图片的src属性作为URL地址
+    var url = img.src
+    var a = document.createElement('a')
+    var event = new MouseEvent('click')
+    
+    a.download = name || '下载图片名称'
+    a.href = url
+    
+    a.dispatchEvent(event)
+}

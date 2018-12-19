@@ -4,14 +4,14 @@
     是否app内打开
 */
 
-var ua = navigator.userAgent.toLowerCase(); //获取浏览器标识并转换为小写
-console.log(ua)
+// var ua = navigator.userAgent.toLowerCase(); //获取浏览器标识并转换为小写
+// console.log(ua)
 // 
 // var curConfig = {
 // 	isiOS: !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //是否苹果
 // 	isAndroid: ua.indexOf('android') > -1 || ua.indexOf('adr') > -1, //是否安卓
 // 	isPC: isPC(), //是否PC
-	// isWeiXin: ua.match(/MicroMessenger/i) == "micromessenger", //是否微信
+// isWeiXin: ua.match(/MicroMessenger/i) == "micromessenger", //是否微信
 // 	isQQ: ua.indexOf(' qq/') > -1, //是否QQ
 // 	isApp: ua.indexOf('isApp') > -1, //是否某个应用
 // };
@@ -141,4 +141,4 @@ console.log(ua)
 // 		alert('请在安卓手机上玩！')
 // 	}
 // }
-// 
+//
