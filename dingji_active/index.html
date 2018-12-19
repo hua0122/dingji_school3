@@ -34,6 +34,13 @@
 		</div>
 		<div class="main">
 			<div class="top">
+				<!-- <div id="qrid">
+				
+								</div>
+								<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://192.168.1.11:8488&title=分享&pics=http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg&desc=帮我助力&summary=好嗨哟&site=qq空间分享">分享到空间</a>
+								<a href="http://connect.qq.com/widget/shareqq/iframe_index.html?url=http://192.168.1.11:8488&title=分享&source=1&desc=帮我助力&pics=http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg&summary=好嗨哟&commonClient=true&site='QQ分享'">分享到qq</a>
+								 -->
+				
 				<div class="logo-box">
 					<img class="logo" src="images/logo.png">
 				</div>
@@ -199,6 +206,7 @@
 				<a href="#" class="social-share-icon icon-qzone"></a>
 			</div>
 		</div>
+
 		<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
@@ -208,6 +216,7 @@
 		<script src="js/social-share.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/layer.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.share.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- <script type="text/javascript" src="http://cdn.staticfile.org/jquery.qrcode/1.0/jquery.qrcode.min.js"></script> -->
 		<script type="text/javascript">
 			let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 			if (userInfo == null || userInfo == "" || userInfo == "null" || userInfo == undefined || userInfo == "undefined") {} else {
@@ -232,10 +241,16 @@
 
 			}
 			$(function() {
+// 				var qrstr = window.location.href + "?fenxiang_id=";
+// 				$('#qrid').qrcode({
+// 					width: 100,
+// 					height: 100,
+// 					text: qrstr
+// 				});
 				if (sessionStorage.getItem("openid") != null && sessionStorage.getItem("openid") != undefined && sessionStorage.getItem(
 						"openid") != "null" && sessionStorage.getItem("openid") != "") {
-					
-				}else{
+
+				} else {
 					var openid = getQueryString("openid");
 					sessionStorage.setItem("openid", openid)
 				}
@@ -243,6 +258,12 @@
 				get_tel();
 				if (userInfo == null || userInfo == "" || userInfo == "null" || userInfo == undefined || userInfo == "undefined") {} else {
 					$(".username").html(userInfo.tel.replace(userInfo.tel.substring(3, 7), '****'))
+					$(".login.img").html("退出");
+					$(".login.img").addClass("tclogin");
+					$(".tclogin").on('click', function() {
+						localStorage.removeItem("userInfo");
+						window.location.reload();
+					})
 					// 个人信息
 					info();
 					// 邀请列表
@@ -267,13 +288,19 @@
 
 					// 预存
 					$(".ycbtn").click(function() {
-						let openid = sessionStorage.getItem("openid");
-						console.log(11)
-						if (openid == null || openid == "" || openid == "null" || openid == undefined || openid == "undefined") {
-							window.location.href = domainName + "/api/user/getwxinfo_ydxchd"
-						} else {
-							prestore();
+
+						var ua = navigator.userAgent.toLowerCase(); //获取浏览器标识并转换为小写
+						if (ua.match(/MicroMessenger/i) == "micromessenger") {
+							let openid = sessionStorage.getItem("openid");
+							if (openid == null || openid == "" || openid == "null" || openid == undefined || openid == "undefined") {
+								window.location.href = domainName + "/api/user/getwxinfo_ydxchd"
+							} else {
+								prestore();
+							}
 						}
+						else{
+							alert("请在微信中打开")
+							}
 					})
 					// 邀请
 					$(".yqbtn").click(function() {
@@ -324,7 +351,6 @@
 						id = yaoqing_id;
 					} else {
 						id = getQueryString("fenxiang_id");
-
 					}
 					let ajaxdata = {
 						tel: recomphone,
