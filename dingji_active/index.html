@@ -33,14 +33,9 @@
 			<div class="op-btn">我知道了</div>
 		</div>
 		<div class="main">
+
+
 			<div class="top">
-				<!-- <div id="qrid">
-				
-								</div>
-								<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://192.168.1.11:8488&title=分享&pics=http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg&desc=帮我助力&summary=好嗨哟&site=qq空间分享">分享到空间</a>
-								<a href="http://connect.qq.com/widget/shareqq/iframe_index.html?url=http://192.168.1.11:8488&title=分享&source=1&desc=帮我助力&pics=http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg&summary=好嗨哟&commonClient=true&site='QQ分享'">分享到qq</a>
-								 -->
-				
 				<div class="logo-box">
 					<img class="logo" src="images/logo.png">
 				</div>
@@ -67,7 +62,7 @@
 					<div class="item-con">
 						<div class="leftright">
 							<div class="text fontcolorfded1f">
-								<dd>-<span class="ycmoney"></span>¥</dd>
+								<dd>-<span class="ycmoney">0</span>¥</dd>
 								<dt></dt>
 							</div>
 							<div class="btn fontcolor792312 toLogin ycbtn">预存</div>
@@ -87,7 +82,7 @@
 					<div class="item-con">
 						<div class="leftright">
 							<div class="text fontcolorfded1f">
-								<dd>-<span class="fxmoney"></span>¥</dd>
+								<dd>-<span class="fxmoney">0</span>¥</dd>
 								<dt>获赠500元代金券</dt>
 							</div>
 							<div class="btn fontcolor792312 toLogin fxbtn">分享</div>
@@ -169,6 +164,7 @@
 		<div class="iframe-popo login">
 			<div class="iframe">
 				<div class="iframe-bg "><span class="html">
+						<h1>请先登录</h1>
 						<div class="input-row">
 							<input type="text" id="recomphone" class="input" placeholder="手机号">
 						</div>
@@ -192,6 +188,27 @@
 				</div>
 			</div>
 		</div>
+		<div class="layermainimg wechat">
+			<h1>微信扫一扫：分享</h1>
+
+			<div id="qrid"></div>
+			<div class="text">打开微信分享二维码给微信好友或者微信朋友圈</div>
+			<!-- <div class="bcbtn">保存到本地</div> -->
+		</div>
+		<div class="layermainimg qq">
+			<h1>分享给QQ好友</h1>
+
+			<div id="qrid"></div>
+			<div class="text">打开QQ分享二维码给QQ好友</div>
+			<!-- <div class="bcbtn">保存到本地</div> -->
+		</div>
+		<div class="lmi-popo">
+			<div class="layermainimg" id="gzh">
+				<h1>微信扫一扫：预存</h1>
+				<div id="qrid"></div>
+				<div class="text">打开微信扫一扫(预存)吧！</div>
+			</div>
+		</div>
 		<div id="share_box" style="display:none;">
 			<h1 class="share_title">分享到</h1>
 			<div class="social-share" data-initialized="true" style="text-align: center;">
@@ -201,52 +218,67 @@
 		<div id="Invitation_box" style="display:none;">
 			<h1 class="share_title">邀请小伙伴来参加0元学车啦</h1>
 			<div class="social-share" data-initialized="true" style="text-align: center;">
-				<a href="#" class="social-share-icon icon-wechat"></a>
-				<a href="#" class="social-share-icon icon-qq"></a>
+				<span href="#" class="social-share-icon icon-wechat"></span>
+				<span href="#" class="social-share-icon icon-qq"></span>
 				<a href="#" class="social-share-icon icon-qzone"></a>
 			</div>
 		</div>
-
 		<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/apiRoot.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/api.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/reg.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/social-share.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/layer.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/jquery.share.min.js" type="text/javascript" charset="utf-8"></script>
-		<!-- <script type="text/javascript" src="http://cdn.staticfile.org/jquery.qrcode/1.0/jquery.qrcode.min.js"></script> -->
+		<script type="text/javascript" src="http://cdn.staticfile.org/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+		<script src="js/navigator.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 			if (userInfo == null || userInfo == "" || userInfo == "null" || userInfo == undefined || userInfo == "undefined") {} else {
-				var $fenxiang_srcconfig = {
-					title: '你好,美食',
-					description: '我在你好美食,分享吃货间的快乐,现在邀请你的加入~快来和我一起分享美食吧~',
-					url: window.location.href + "?fenxiang_id=" + userInfo.id,
-					source: window.location.href + "?fenxiang_id=" + userInfo.id,
-					image: 'http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg',
-				};
-
-				socialShare('#share_box .social-share', $fenxiang_srcconfig);
-				var $yaoqing_srcconfig = {
-					title: '你好,美食',
-					description: '我在你好美食,分享吃货间的快乐,现在邀请你的加入~快来和我一起分享美食吧~',
-					url: window.location.href + "?yaoqing_id=" + userInfo.id,
-					source: window.location.href + "?yaoqing_id=" + userInfo.id,
-					image: 'http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg',
-				};
-
-				socialShare('#Invitation_box .social-share', $yaoqing_srcconfig);
-
+				// 分享链接生成
+				let fenxiangurl = window.location.href + "?fenxiang_id=" + userInfo.id;
+				$("#share_box .icon-qzone").attr("href",
+					"http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + fenxiangurl +
+					"&title=分享&pics=http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg&desc=帮我助力&summary=好嗨哟&site=qq空间分享"
+				);
+				let yaoqingurl = window.location.href + "?yaoqing_id=" + userInfo.id;
+				$("#Invitation_box .icon-qzone").attr("href",
+					"http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + yaoqingurl +
+					"&title=分享&pics=http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg&desc=帮我助力&summary=好嗨哟&site=qq空间分享"
+				);
+				// 二维码生成
+				$('.qq #qrid').qrcode({
+					width: 100,
+					height: 100,
+					text: yaoqingurl
+				});
+				$('.wechat #qrid').qrcode({
+					width: 100,
+					height: 100,
+					text: yaoqingurl
+				});
+				$('#gzh #qrid').qrcode({
+					width: 100,
+					height: 100,
+					text: yaoqingurl
+				});
+				$(document).on("click", ".layui-m-layershade", function() {
+					$(".layermainimg").css("display", "none");
+				})
+				$(document).on("click", ".icon-wechat", function() {
+					$(".layermainimg.wechat").css("display", "flex");
+					$(".layermainimg.qq").css("display", "none");
+				});
+				$(document).on("click", ".icon-qq", function() {
+					$(".layermainimg.qq").css("display", "flex");
+					$(".layermainimg.wechat").css("display", "none");
+				});
+				$(".qq .bcbtn").click(function() {
+					downloadIamge('.qq #qrid', "qrid");
+				})
 			}
+
 			$(function() {
-// 				var qrstr = window.location.href + "?fenxiang_id=";
-// 				$('#qrid').qrcode({
-// 					width: 100,
-// 					height: 100,
-// 					text: qrstr
-// 				});
 				if (sessionStorage.getItem("openid") != null && sessionStorage.getItem("openid") != undefined && sessionStorage.getItem(
 						"openid") != "null" && sessionStorage.getItem("openid") != "") {
 
@@ -297,10 +329,14 @@
 							} else {
 								prestore();
 							}
+						} else {
+							$("#gzh").css("display", "flex");
+							$(".lmi-popo").show();
 						}
-						else{
-							alert("请在微信中打开")
-							}
+					})
+					$(".lmi-popo").click(function(){
+							$("#gzh").css("display", "none");
+							$(".lmi-popo").hide(1);
 					})
 					// 邀请
 					$(".yqbtn").click(function() {
@@ -311,8 +347,10 @@
 				$(".op-btn").click(function() {
 					$(".open-popo").hide(1);
 				})
-				$(".login").click(function() {
+				$(".login.img").click(function() {
 					$(".iframe-popo").show();
+					$(".iframe-popo h1").html("");
+					$(".iframe-popo .html").css("height", '55%')
 				})
 				$(".close").on("click", function() {
 					$(".iframe-popo").hide(1);
@@ -363,6 +401,9 @@
 
 				$(".toLogin").click(function() {
 					toLogin();
+
+					$(".iframe-popo h1").html("请先登录");
+					$(".iframe-popo .html").css("height", '75%')
 				})
 				// 活动规则
 				$(".tule-box").click(function() {
