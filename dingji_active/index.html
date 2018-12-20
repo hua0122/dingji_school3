@@ -272,10 +272,11 @@
 			}
 
 			$(function() {
-				if (getQueryStringdengy("openid")!= null && getQueryStringdengy("openid") != undefined && getQueryStringdengy("openid")!= "null" && getQueryStringdengy("openid")!= "") {
+				if (getQueryStringdengy("openid") != null && getQueryStringdengy("openid") != undefined && getQueryStringdengy(
+						"openid") != "null" && getQueryStringdengy("openid") != "") {
 					var openid = getQueryStringdengy("openid");
 					sessionStorage.setItem("openid", openid);
-						prestore();
+					prestore();
 				}
 				// 根据邀请人id获取电话号码
 				get_tel();
@@ -351,11 +352,17 @@
 					let recomphone = $("#recomphone").val();
 					if (recomphone == "" || recomphone == null || recomphone == undefined || recomphone == "null" || recomphone ==
 						"undefined") {
-						alert("电话号码不能为空", " ");
+							layer.open({
+								content: '电话号码不能为空',
+								btn: '确定'
+							});
 						return;
 					}
 					if (!regList.phone.test(recomphone)) {
-						alert("请输入正确的电话号码", " ");
+						layer.open({
+							content: '请输入正确的电话号码',
+							btn: '确定'
+						});
 						return;
 					}
 					sent_msg(recomphone)
@@ -366,11 +373,17 @@
 					let recomcode = $("#recomcode").val();
 					if (recomphone == "" || recomphone == null || recomphone == undefined || recomphone == "null" || recomphone ==
 						"undefined") {
-						alert("电话号码不能为空", " ");
+						layer.open({
+							content: '电话号码不能为空',
+							btn: '确定'
+						});
 						return;
 					}
 					if (!regList.phone.test(recomphone)) {
-						alert("请输入正确的电话号码", " ");
+						layer.open({
+							content: '请输入正确的电话号码',
+							btn: '确定'
+						});
 						return;
 					}
 					let yaoqing_id = getQueryString("yaoqing_id"),
