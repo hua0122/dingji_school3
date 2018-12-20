@@ -83,7 +83,7 @@
 						<div class="leftright">
 							<div class="text fontcolorfded1f">
 								<dd>-<span class="fxmoney">0</span>¥</dd>
-								<dt>获赠500元代金券</dt>
+								<dt class="luck_name"></dt>
 							</div>
 							<div class="btn fontcolor792312 toLogin fxbtn">分享</div>
 						</div>
@@ -297,6 +297,7 @@
 					invite_list()
 					// 查看是否可以抽奖
 					let chancedata = chance();
+					$(".luck_name").html(chancedata.data.luck_name);
 					if (chancedata.data.is_share == 0) {
 						$(".fxbtn").html("分享");
 					} else {
