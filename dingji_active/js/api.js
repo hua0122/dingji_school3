@@ -39,14 +39,19 @@ function sent_msg(tel) {
 	}
 	let data = ajaxPost(activity_sent_msg, ajaxdata);
 	if (data.returnstatus == "Success") {
-		alert("验证码已发送，请注意查收", " ")
+		layer.open({
+			content: '验证码已发送，请注意查收',
+			btn: '确定'
+		});
 		$(".codebtn").css("pointer-events", "none");
 		$(".codebtn").text(60);
 		num();
 		// $(".codebtn").addClass("ztsfontcolor").removeClass("ztsbuttom");
 	} else {
-
-		alert(data.message, " ")
+		layer.open({
+			content: data.message,
+			btn: '确定'
+		});
 	}
 }
 // 登录
@@ -54,13 +59,19 @@ function login(ajaxdata) {
 	let data = ajaxPost(activity_login, ajaxdata);
 	if (data.status == "200") {
 		localStorage.setItem("userInfo", JSON.stringify(data.data))
-		alert("登录成功");
+		layer.open({
+			content: "登录成功",
+			btn: '确定'
+		});
 		$(".iframe-popo").hide(1);
 		$(".total_amount").html(data.data.total_amount)
 		window.location.reload();
 		$("#recomphone").val("");
 	} else {
-		alert(data.msg, " ")
+		layer.open({
+			content: data.msg,
+			btn: '确定'
+		});
 	}
 }
 // 判断是否登录
@@ -158,20 +169,32 @@ function prestore() {
 				signType: "MD5", //微信签名方式：
 				paySign: data.data.paySign, //微信签名
 				success: function(res) {
-					alert("预存成功");
+					layer.open({
+						content: "预存成功",
+						btn: '确定'
+					});
 					info();
 				},
 				cancel: function(res) {
-					alert("取消支付");
+					layer.open({
+						content: "取消支付",
+						btn: '确定'
+					});
 				},
 				fail: function(res) { // 支付失败回调函数
-					alert("支付失败");
+					layer.open({
+						content: "支付失败",
+						btn: '确定'
+					});
 				}
 			});
 		});
 
 	} else {
-		alert(data.msg)
+		layer.open({
+			content: data.msg,
+			btn: '确定'
+		});
 	}
 }
 // 分享前
@@ -205,11 +228,17 @@ function luck() {
 			easing: $.easing.easeOutSine,
 			//easing动画效果 
 			callback: function() { //回调函数  
-				alert(data.data.prize);
+				layer.open({
+					content: data.data.prize,
+					btn: '确定'
+				});
 			}
 		});
 	} else {
-		alert(data.msg)
+		layer.open({
+			content: data.msg,
+			btn: '确定'
+		});
 	}
 }
 // 查看是否可以抽奖
@@ -236,6 +265,7 @@ function luck_list() {
 }
 //分享弹出页面层
 function do_share() {
+
 	layer.open({
 		type: 1,
 		content: $('#share_box').html(),
@@ -256,10 +286,15 @@ function do_share() {
 	};
 
 	socialShare('.social-share', $config);
-	alert("分享后需要小伙伴浏览您的分享链接才可以抽奖哟！")
+	
+		layer.open({
+			content:"分享后需要小伙伴浏览您的分享链接才可以抽奖哟！",
+			btn: '确定'
+		});
 }
 //邀请弹出页面层
 function do_Invitation() {
+
 	layer.open({
 		type: 1,
 		content: $('#Invitation_box').html(),
