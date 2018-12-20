@@ -78,3 +78,16 @@ function getQueryStringdengy(name) {
 	if (r != null) return unescape(r[2]);
 	return null;
 }
+(function() {
+	//先判断是否为微信浏览器
+	var ua = window.navigator.userAgent.toLowerCase();
+		//重写alert方法，alert()方法重写，不能传多余参数
+		window.alert = function(name) {
+			var iframe = document.createElement("IFRAME");
+			iframe.style.display = "none";
+			iframe.setAttribute("src", 'data:text/plain');
+			document.documentElement.appendChild(iframe);
+			window.frames[0].window.alert(name);
+			iframe.parentNode.removeChild(iframe);
+		}
+})();
