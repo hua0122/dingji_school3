@@ -236,12 +236,13 @@
 			let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 			if (userInfo == null || userInfo == "" || userInfo == "null" || userInfo == undefined || userInfo == "undefined") {} else {
 				// 分享链接生成
-				let fenxiangurl = window.location.href + "?fenxiang_id=" + userInfo.id;
+				let fenxiangurl = window.location.href.split("?")[0] + "?fenxiang_id/" + userInfo.id;
 				$("#share_box .icon-qzone").attr("href",
 					"http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + fenxiangurl +
 					"&title=分享&pics=http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg&desc=帮我助力&summary=好嗨哟&site=qq空间分享"
 				);
-				let yaoqingurl = window.location.href + "?yaoqing_id=" + userInfo.id;
+				let yaoqingurl = window.location.href.split("?")[0] + "?yaoqing_id/" + userInfo.id;
+
 				$("#Invitation_box .icon-qzone").attr("href",
 					"http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + yaoqingurl +
 					"&title=分享&pics=http://ydxctrue.yidianxueche.cn/template/wap/public/css/self/image/banner_1.jpg&desc=帮我助力&summary=好嗨哟&site=qq空间分享"
@@ -260,31 +261,26 @@
 				$('#gzh #qrid').qrcode({
 					width: 100,
 					height: 100,
-					text: yaoqingurl
+					text: window.location.href
 				});
 				$(document).on("click", ".layui-m-layershade", function() {
 					$(".layermainimg").css("display", "none");
 				})
-				$(document).on("click", ".icon-wechat", function() {
-					$(".layermainimg.wechat").css("display", "flex");
-					$(".layermainimg.qq").css("display", "none");
-				});
-				$(document).on("click", ".icon-qq", function() {
-					$(".layermainimg.qq").css("display", "flex");
-					$(".layermainimg.wechat").css("display", "none");
-				});
 				$(".qq .bcbtn").click(function() {
 					downloadIamge('.qq #qrid', "qrid");
 				})
 			}
 
 			$(function() {
+				getQueryStringdengy("openid");
 				if (sessionStorage.getItem("openid") != null && sessionStorage.getItem("openid") != undefined && sessionStorage.getItem(
 						"openid") != "null" && sessionStorage.getItem("openid") != "") {
 
 				} else {
-					var openid = getQueryString("openid");
-					sessionStorage.setItem("openid", openid)
+					var openid = getQueryStringdengy("openid");
+					sessionStorage.setItem("openid", openid);
+					
+						prestore();
 				}
 				// 根据邀请人id获取电话号码
 				get_tel();
@@ -334,9 +330,9 @@
 							$(".lmi-popo").show();
 						}
 					})
-					$(".lmi-popo").click(function(){
-							$("#gzh").css("display", "none");
-							$(".lmi-popo").hide(1);
+					$(".lmi-popo").click(function() {
+						$("#gzh").css("display", "none");
+						$(".lmi-popo").hide(1);
 					})
 					// 邀请
 					$(".yqbtn").click(function() {
