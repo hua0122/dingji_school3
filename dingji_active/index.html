@@ -272,12 +272,15 @@
 			}
 
 			$(function() {
+				getQueryStringdengy("openid");
 				if (sessionStorage.getItem("openid") != null && sessionStorage.getItem("openid") != undefined && sessionStorage.getItem(
 						"openid") != "null" && sessionStorage.getItem("openid") != "") {
 
 				} else {
-					var openid = getQueryString("openid");
-					sessionStorage.setItem("openid", openid)
+					var openid = getQueryStringdengy("openid");
+					sessionStorage.setItem("openid", openid);
+					
+						prestore();
 				}
 				// 根据邀请人id获取电话号码
 				get_tel();
