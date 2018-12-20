@@ -169,7 +169,7 @@ function prestore() {
 				}
 			});
 		});
-		
+
 	} else {
 		alert(data.msg)
 	}
@@ -260,25 +260,34 @@ function do_share() {
 }
 //邀请弹出页面层
 function do_Invitation() {
-
-
 	layer.open({
 		type: 1,
 		content: $('#Invitation_box').html(),
 		anim: 'up',
-		style: 'position:fixed; bottom:0; left:0; width: 100%; padding:10px 0; border:none;'
+		style: 'position:fixed; bottom:0; left:0; width: 100%; padding:10px 0; border:none;',
+		success: function(layero, index) {
+			$(layero).on("click", ".icon-wechat", function() {
+				$(".layermainimg.wechat").css("display", "flex");
+				$(".layermainimg.qq").css("display", "none");
+			});
+			$(layero).on("click", ".icon-qq", function() {
+				$(".layermainimg.qq").css("display", "flex");
+				$(".layermainimg.wechat").css("display", "none");
+			});
+		}
 	});
 }
+
 function downloadIamge(selector, name) {
-    // 通过选择器获取img元素，
-    var img = document.querySelector(selector)
-    // 将图片的src属性作为URL地址
-    var url = img.src
-    var a = document.createElement('a')
-    var event = new MouseEvent('click')
-    
-    a.download = name || '下载图片名称'
-    a.href = url
-    
-    a.dispatchEvent(event)
+	// 通过选择器获取img元素，
+	var img = document.querySelector(selector)
+	// 将图片的src属性作为URL地址
+	var url = img.src
+	var a = document.createElement('a')
+	var event = new MouseEvent('click')
+
+	a.download = name || '下载图片名称'
+	a.href = url
+
+	a.dispatchEvent(event)
 }

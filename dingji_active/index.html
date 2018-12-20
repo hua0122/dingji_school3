@@ -266,14 +266,6 @@
 				$(document).on("click", ".layui-m-layershade", function() {
 					$(".layermainimg").css("display", "none");
 				})
-				$(document).on("click", ".icon-wechat", function() {
-					$(".layermainimg.wechat").css("display", "flex");
-					$(".layermainimg.qq").css("display", "none");
-				});
-				$(document).on("click", ".icon-qq", function() {
-					$(".layermainimg.qq").css("display", "flex");
-					$(".layermainimg.wechat").css("display", "none");
-				});
 				$(".qq .bcbtn").click(function() {
 					downloadIamge('.qq #qrid', "qrid");
 				})
