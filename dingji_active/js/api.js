@@ -148,7 +148,8 @@ function prestore() {
 		amount: 100,
 		tel: userInfo.tel,
 		id: id,
-		openid: sessionStorage.getItem("openid")
+		openid: sessionStorage.getItem("openid"),
+		school_id:school_id
 	}
 	let data = ajaxPost(activity_prestore, ajaxdata);
 	if (data.status == "200") {
