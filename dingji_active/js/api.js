@@ -137,8 +137,7 @@ function invite() {
 // 预存
 function prestore() {
 
-	var openid = getQueryStringdengy("openid");
-	sessionStorage.setItem("openid", openid);
+	
 	let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 	let yaoqing_id = getQueryString("yaoqing_id"),
 		id = "";
@@ -178,7 +177,7 @@ function prestore() {
 					layer.open({
 						content: "预存成功",
 						btn: '确定',
-						yes: function() {
+						btn: function() {
 							locationReplace();
 						}
 					});
@@ -188,7 +187,7 @@ function prestore() {
 					layer.open({
 						content: "取消支付",
 						btn: '确定',
-						yes: function() {
+						btn: function() {
 							locationReplace();
 						}
 					});
@@ -198,7 +197,7 @@ function prestore() {
 					layer.open({
 						content: "支付失败",
 						btn: '确定',
-						yes: function() {
+						btn: function() {
 							locationReplace();
 						}
 					});
@@ -211,7 +210,7 @@ function prestore() {
 		layer.open({
 			content: data.msg,
 			btn: '确定',
-			yes: function() {
+			btn: function() {
 				locationReplace();
 			}
 		});
