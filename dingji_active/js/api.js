@@ -136,6 +136,7 @@ function invite() {
 }
 // 预存
 function prestore() {
+	
 	let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 	let yaoqing_id = getQueryString("yaoqing_id"),
 		id = "";
@@ -193,11 +194,14 @@ function prestore() {
 			});
 		});
 
+	locationReplace();
 	} else {
 		layer.open({
 			content: data.msg,
 			btn: '确定'
 		});
+		
+		locationReplace();
 	}
 }
 
@@ -343,9 +347,6 @@ function do_Invitation() {
 				$(".layermainimg.qq").css("display", "flex");
 				$(".layermainimg.wechat").css("display", "none");
 			});
-			$(layero).on("click", ".icon-qzone", function() {
-				 window.location.href= window.location.href.split("?")[0];
-			});
 		}
 	});
 }
@@ -362,4 +363,10 @@ function downloadIamge(selector, name) {
 	a.href = url
 
 	a.dispatchEvent(event)
+}
+function locationReplace(){
+	if(window.location.href.indexOf("openid")!=-1){
+		let replacesrc=window.location.href.substring(window.location.href.indexOf("openid"),window.location.href.indexOf("openid")+35);
+		window.location.href=window.location.href.replace(replacesrc,"");
+	}
 }
