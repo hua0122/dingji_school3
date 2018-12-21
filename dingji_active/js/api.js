@@ -27,8 +27,16 @@ let activity_share_after = "/api/activity/share_after";
 
 // 根据邀请人id获取电话号码
 function get_tel() {
+	let yaoqing_id = getQueryString("yaoqing_id"),
+		id = "";
+	if (yaoqing_id != null || yaoqing_id != "" || yaoqing_id != "null" || yaoqing_id != undefined || yaoqing_id !=
+		"undefined") {
+		id = yaoqing_id;
+	} else {
+		id = getQueryString("fenxiang_id");
+	}
 	let ajaxdata = {
-		id: getQueryString("yaoqing_id")
+		id: id
 	}
 	let data = ajaxPost(activity_get_tel, ajaxdata);
 	if (data.status == "200") {
@@ -178,8 +186,8 @@ function prestore() {
 					layer.open({
 						content: "预存成功",
 						btn: '确定',
-						yes: function(index,layero) {
-							 layer.close(index);
+						yes: function(index, layero) {
+							layer.close(index);
 							locationReplace();
 						}
 					});
@@ -189,8 +197,8 @@ function prestore() {
 					layer.open({
 						content: "取消支付",
 						btn: '确定',
-						yes: function(index,layero) {
-							 layer.close(index);
+						yes: function(index, layero) {
+							layer.close(index);
 							locationReplace();
 						}
 					});
@@ -200,8 +208,8 @@ function prestore() {
 					layer.open({
 						content: "支付失败",
 						btn: '确定',
-						yes: function(index,layero) {
-							 layer.close(index);
+						yes: function(index, layero) {
+							layer.close(index);
 							locationReplace();
 						}
 					});
@@ -214,8 +222,8 @@ function prestore() {
 		layer.open({
 			content: data.msg,
 			btn: '确定',
-			yes: function(index,layero) {
-				 layer.close(index);
+			yes: function(index, layero) {
+				layer.close(index);
 				locationReplace();
 			}
 		});
