@@ -137,6 +137,8 @@ function invite() {
 // 预存
 function prestore() {
 
+	var openid = getQueryStringdengy("openid");
+	sessionStorage.setItem("openid", openid);
 	let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 	let yaoqing_id = getQueryString("yaoqing_id"),
 		id = "";
