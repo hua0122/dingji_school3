@@ -139,19 +139,10 @@ function prestore() {
 
 
 	let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-	let yaoqing_id = getQueryString("yaoqing_id"),
-		id = "";
-	if (yaoqing_id != null || yaoqing_id != "" || yaoqing_id != "null" || yaoqing_id != undefined || yaoqing_id !=
-		"undefined") {
-		id = yaoqing_id;
-	} else {
-		id = getQueryString("fenxiang_id");
-
-	}
 	let ajaxdata = {
 		amount: 100,
 		tel: userInfo.tel,
-		id: id,
+		id: userInfo.pid,
 		openid: localStorage.getItem("openid"),
 		school_id: school_id
 	}
