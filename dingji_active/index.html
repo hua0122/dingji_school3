@@ -404,14 +404,8 @@
 						});
 						return;
 					}
-					let yaoqing_id = getQueryString("yaoqing_id"),
-						id = "";
-					if (yaoqing_id != null || yaoqing_id != "" || yaoqing_id != "null" || yaoqing_id != undefined || yaoqing_id !=
-						"undefined") {
-						id = yaoqing_id;
-					} else {
-						id = getQueryString("fenxiang_id");
-					}
+					let id = getQueryString("yaoqing_id") || getQueryString("fenxiang_id");
+					console.log(id)
 					let ajaxdata = {
 						tel: recomphone,
 						code: recomcode,

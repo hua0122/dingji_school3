@@ -27,14 +27,7 @@ let activity_share_after = "/api/activity/share_after";
 
 // 根据邀请人id获取电话号码
 function get_tel() {
-	let yaoqing_id = getQueryString("yaoqing_id"),
-		id = "";
-	if (yaoqing_id != null || yaoqing_id != "" || yaoqing_id != "null" || yaoqing_id != undefined || yaoqing_id !=
-		"undefined") {
-		id = yaoqing_id;
-	} else {
-		id = getQueryString("fenxiang_id");
-	}
+	let id = getQueryString("yaoqing_id") || getQueryString("fenxiang_id");
 	let ajaxdata = {
 		id: id
 	}
