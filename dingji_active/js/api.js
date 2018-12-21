@@ -184,7 +184,7 @@ function prestore() {
 				signType: "MD5", //微信签名方式：
 				paySign: data.data.paySign, //微信签名
 				success: function(res) {
-					alert(res)
+					alert(JSON.stringify(res))
 					layer.open({
 						content: "预存成功",
 						btn: '确定',
