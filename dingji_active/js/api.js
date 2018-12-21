@@ -95,7 +95,7 @@ function info() {
 	if (data.status == "200") {
 		localStorage.setItem("userInfo", JSON.stringify(data.data))
 		$(".total_amount").html(data.data.total_amount)
-		if (data.data.is_prestore == 1) {
+		if (data.data.is_pay == 1) {
 			$(".ycmoney").html("300");
 		} else {
 			$(".ycmoney").html("0");
