@@ -189,7 +189,8 @@ function prestore() {
 						btn: '确定',
 						yes: function(index, layero) {
 							layer.close(index);
-							locationReplace();
+							locationReplace(true);
+							
 						}
 					});
 
@@ -378,7 +379,10 @@ function downloadIamge(selector, name) {
 	a.dispatchEvent(event)
 }
 
-function locationReplace() {
+function locationReplace(type) {
+	if(type==true){
+		window.location.reload();
+	}
 	if (window.location.href.indexOf("openid") != -1) {
 		let replacesrc = window.location.href.substring(window.location.href.indexOf("openid"), window.location.href.indexOf(
 			"openid") + 35);
