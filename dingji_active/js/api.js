@@ -136,7 +136,7 @@ function invite() {
 }
 // 预存
 function prestore() {
-	
+
 	let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 	let yaoqing_id = getQueryString("yaoqing_id"),
 		id = "";
@@ -152,7 +152,7 @@ function prestore() {
 		tel: userInfo.tel,
 		id: id,
 		openid: sessionStorage.getItem("openid"),
-		school_id:school_id
+		school_id: school_id
 	}
 	let data = ajaxPost(activity_prestore, ajaxdata);
 	if (data.status == "200") {
@@ -194,13 +194,13 @@ function prestore() {
 			});
 		});
 
-	locationReplace();
+		locationReplace();
 	} else {
 		layer.open({
 			content: data.msg,
 			btn: '确定'
 		});
-		
+
 		locationReplace();
 	}
 }
@@ -221,12 +221,12 @@ function prestore_h5() {
 		amount: 100,
 		tel: userInfo.tel,
 		id: id,
-		school_id:school_id
+		school_id: school_id
 	}
 	let data = ajaxPost(activity_prestore_h5, ajaxdata);
 	if (data.status == "200") {
-		console.log("https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?"+data.data.package)
-		location.href="https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?"+data.data.package;
+		console.log("https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?" + data.data.package)
+		location.href = "https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?" + data.data.package;
 
 	} else {
 		layer.open({
@@ -324,11 +324,11 @@ function do_share() {
 	};
 
 	socialShare('.social-share', $config);
-	
-		layer.open({
-			content:"分享后需要小伙伴浏览您的分享链接才可以抽奖哟！",
-			btn: '确定'
-		});
+
+	layer.open({
+		content: "分享后需要小伙伴浏览您的分享链接才可以抽奖哟！",
+		btn: '确定'
+	});
 }
 //邀请弹出页面层
 function do_Invitation() {
@@ -364,9 +364,11 @@ function downloadIamge(selector, name) {
 
 	a.dispatchEvent(event)
 }
-function locationReplace(){
-	if(window.location.href.indexOf("openid")!=-1){
-		let replacesrc=window.location.href.substring(window.location.href.indexOf("openid"),window.location.href.indexOf("openid")+35);
-		window.location.href=window.location.href.replace(replacesrc,"");
+
+function locationReplace() {
+	if (window.location.href.indexOf("openid") != -1) {
+		let replacesrc = window.location.href.substring(window.location.href.indexOf("openid"), window.location.href.indexOf(
+			"openid") + 35);
+		window.location.href = window.location.href.replace(replacesrc, "");
 	}
 }
