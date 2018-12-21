@@ -277,7 +277,7 @@
 
 			$(function() {
 				let openid = localStorage.getItem("openid");
-				if (openid== null && openid== undefined && openid== "null" && openid== "") {
+				if (openid== null || openid== undefined || openid== "null" || openid== "") {
 					var openidg = getQueryStringdengy("openid");
 					localStorage.setItem("openid", openidg);
 					prestore();
