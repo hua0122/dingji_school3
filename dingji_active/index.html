@@ -286,12 +286,14 @@
 						localStorage.removeItem("userInfo");
 						window.location.reload();
 					})
-					let openid = localStorage.getItem("openid");
+					let openid = getQueryStringdengy("openid");
 					if (openid== null || openid== undefined || openid== "null" || openid== "") {
+						
+					}else{
 						var openidg = getQueryStringdengy("openid");
 						localStorage.setItem("openid", openidg);
 						prestore();
-					}
+						}
 					// 个人信息
 					info();
 					// 邀请列表
