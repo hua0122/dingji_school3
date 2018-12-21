@@ -276,12 +276,6 @@
 			}
 
 			$(function() {
-				let openid = localStorage.getItem("openid");
-				if (openid== null || openid== undefined || openid== "null" || openid== "") {
-					var openidg = getQueryStringdengy("openid");
-					localStorage.setItem("openid", openidg);
-					prestore();
-				}
 				// 根据邀请人id获取电话号码
 				get_tel();
 				if (userInfo == null || userInfo == "" || userInfo == "null" || userInfo == undefined || userInfo == "undefined") {} else {
@@ -292,6 +286,12 @@
 						localStorage.removeItem("userInfo");
 						window.location.reload();
 					})
+					let openid = localStorage.getItem("openid");
+					if (openid== null || openid== undefined || openid== "null" || openid== "") {
+						var openidg = getQueryStringdengy("openid");
+						localStorage.setItem("openid", openidg);
+						prestore();
+					}
 					// 个人信息
 					info();
 					// 邀请列表
