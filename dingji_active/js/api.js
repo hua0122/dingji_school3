@@ -22,6 +22,8 @@ let activity_luck = "/api/activity/luck";
 let activity_chance = "/api/activity/chance";
 // 中奖数据
 let activity_luck_list = "/api/activity/luck_list";
+// 分享成功之后调一下
+let activity_share_after = "/api/activity/share_after";
 
 // 根据邀请人id获取电话号码
 function get_tel() {
@@ -32,7 +34,15 @@ function get_tel() {
 	if (data.status == "200") {
 		$(".open-popo").css("display", "flex");
 		$(".phone").html(data.data.tel)
+		share_after(data.data.tel)
 	}
+}
+// 分享成功之后调一下
+function share_after(tel) {
+	let ajaxdata = {
+		tel: tel
+	}
+	let data = ajaxPost(activity_share_after, ajaxdata);
 }
 // 发送验证码
 function sent_msg(tel) {
