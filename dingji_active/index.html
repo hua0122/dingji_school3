@@ -278,8 +278,8 @@
 			$(function() {
 				let openid = localStorage.getItem("openid");
 				if (openid== null && openid== undefined && openid== "null" && openid== "") {
-					var openid = getQueryStringdengy("openid");
-					localStorage.setItem("openid", openid);
+					var openidg = getQueryStringdengy("openid");
+					localStorage.setItem("openid", openidg);
 					prestore();
 				}
 				// 根据邀请人id获取电话号码
