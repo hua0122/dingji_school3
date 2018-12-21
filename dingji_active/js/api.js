@@ -178,6 +178,7 @@ function prestore() {
 						content: "预存成功",
 						btn: '确定',
 						yes: function(index,layero) {
+							 layer.close(index);
 							locationReplace();
 						}
 					});
@@ -188,6 +189,7 @@ function prestore() {
 						content: "取消支付",
 						btn: '确定',
 						yes: function(index,layero) {
+							 layer.close(index);
 							locationReplace();
 						}
 					});
@@ -198,6 +200,7 @@ function prestore() {
 						content: "支付失败",
 						btn: '确定',
 						yes: function(index,layero) {
+							 layer.close(index);
 							locationReplace();
 						}
 					});
@@ -211,6 +214,7 @@ function prestore() {
 			content: data.msg,
 			btn: '确定',
 			yes: function(index,layero) {
+				 layer.close(index);
 				locationReplace();
 			}
 		});
