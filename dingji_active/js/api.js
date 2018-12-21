@@ -177,7 +177,7 @@ function prestore() {
 					layer.open({
 						content: "预存成功",
 						btn: '确定',
-						yes: function() {
+						yes: function(index,layero) {
 							locationReplace();
 						}
 					});
@@ -187,7 +187,7 @@ function prestore() {
 					layer.open({
 						content: "取消支付",
 						btn: '确定',
-						yes: function() {
+						yes: function(index,layero) {
 							locationReplace();
 						}
 					});
@@ -197,7 +197,7 @@ function prestore() {
 					layer.open({
 						content: "支付失败",
 						btn: '确定',
-						yes: function() {
+						yes: function(index,layero) {
 							locationReplace();
 						}
 					});
@@ -210,7 +210,7 @@ function prestore() {
 		layer.open({
 			content: data.msg,
 			btn: '确定',
-			yes: function() {
+			yes: function(index,layero) {
 				locationReplace();
 			}
 		});
