@@ -27,18 +27,26 @@ let activity_share_after = "/api/activity/share_after";
 
 // 根据邀请人id获取电话号码
 function get_tel() {
-	let id = getQueryString("yaoqing_id") || getQueryString("fenxiang_id");
 	let ajaxdata = {
-		id: id
+		id: getQueryString("yaoqing_id")
 	}
 	let data = ajaxPost(activity_get_tel, ajaxdata);
 	if (data.status == "200") {
 		$(".open-popo").css("display", "flex");
 		$(".phone").html(data.data.tel)
-		share_after(data.data.tel)
 	}
 }
 // 分享成功之后调一下
+// 根据分享人id获取电话号码
+function get_telfenxiang() {
+	let ajaxdata = {
+		id: getQueryString("fenxiang_id")
+	}
+	let data = ajaxPost(activity_get_tel, ajaxdata);
+	if (data.status == "200") {
+		share_after(data.data.tel)
+	}
+}
 function share_after(tel) {
 	let ajaxdata = {
 		tel: tel

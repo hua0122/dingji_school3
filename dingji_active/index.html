@@ -278,6 +278,7 @@
 			$(function() {
 				// 根据邀请人id获取电话号码
 				get_tel();
+				get_telfenxiang();
 				if (userInfo == null || userInfo == "" || userInfo == "null" || userInfo == undefined || userInfo == "undefined") {} else {
 					$(".username").html(userInfo.tel.replace(userInfo.tel.substring(3, 7), '****'))
 					$(".login.img").html("退出");
