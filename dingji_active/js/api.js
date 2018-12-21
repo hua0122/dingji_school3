@@ -177,33 +177,46 @@ function prestore() {
 				success: function(res) {
 					layer.open({
 						content: "预存成功",
-						btn: '确定'
+						btn: '确定',
+						yes: function() {
+							locationReplace();
+						}
 					});
-					info();
+
 				},
 				cancel: function(res) {
 					layer.open({
 						content: "取消支付",
-						btn: '确定'
+						btn: '确定',
+						yes: function() {
+							locationReplace();
+						}
 					});
+
 				},
 				fail: function(res) { // 支付失败回调函数
 					layer.open({
 						content: "支付失败",
-						btn: '确定'
+						btn: '确定',
+						yes: function() {
+							locationReplace();
+						}
 					});
+
 				}
 			});
 		});
 
-		locationReplace();
 	} else {
 		layer.open({
 			content: data.msg,
-			btn: '确定'
+			btn: '确定',
+			yes: function() {
+				locationReplace();
+			}
 		});
 
-		locationReplace();
+		// locationReplace();
 	}
 }
 
