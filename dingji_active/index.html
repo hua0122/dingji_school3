@@ -320,7 +320,7 @@
 
 						var ua = navigator.userAgent.toLowerCase(); //获取浏览器标识并转换为小写
 						if (ua.match(/MicroMessenger/i) == "micromessenger") {
-							let openid = sessionStorage.getItem("openid");
+							let openid = localStorage.getItem("openid");
 							if (openid == null || openid == "" || openid == "null" || openid == undefined || openid == "undefined") {
 								window.location.href =getwxinfo;
 							} else {
