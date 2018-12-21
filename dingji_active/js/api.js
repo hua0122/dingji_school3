@@ -137,7 +137,7 @@ function invite() {
 // 预存
 function prestore() {
 
-	
+
 	let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 	let yaoqing_id = getQueryString("yaoqing_id"),
 		id = "";
@@ -177,7 +177,7 @@ function prestore() {
 					layer.open({
 						content: "预存成功",
 						btn: '确定',
-						yes:function() {
+						yes: function() {
 							locationReplace();
 						}
 					});
@@ -187,8 +187,11 @@ function prestore() {
 					layer.open({
 						content: "取消支付",
 						btn: '确定',
-						yes:function() {
-							locationReplace();
+						success: function(layero, index) {
+							$(layero).on("click", ".layui-m-layerbtn", function() {
+
+								locationReplace();
+							});
 						}
 					});
 
@@ -197,8 +200,11 @@ function prestore() {
 					layer.open({
 						content: "支付失败",
 						btn: '确定',
-						yes:function() {
-							locationReplace();
+						success: function(layero, index) {
+							$(layero).on("click", ".layui-m-layerbtn", function() {
+
+								locationReplace();
+							});
 						}
 					});
 
@@ -210,8 +216,11 @@ function prestore() {
 		layer.open({
 			content: data.msg,
 			btn: '确定',
-			yes:function() {
-				locationReplace();
+			success: function(layero, index) {
+				$(layero).on("click", ".layui-m-layerbtn", function() {
+
+					locationReplace();
+				});
 			}
 		});
 
