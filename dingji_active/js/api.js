@@ -329,21 +329,6 @@ function do_share() {
 		anim: 'up',
 		style: 'position:fixed; bottom:0; left:0; width: 100%; padding:10px 0; border:none;'
 	});
-	var $config = {
-		title: '你好,美食',
-		description: '我在你好美食,分享吃货间的快乐,现在邀请你的加入~快来和我一起分享美食吧~',
-		url: window.location.href + "?yaoqing_id=" + userInfo.id,
-		source: window.location.href + "?yaoqing_id=" + userInfo.id,
-		image: 'http://hellofood.fun/webicon.png',
-		// summary : '吃货召唤', //相当于description
-		// sites   : ['qzone', 'qq', 'weibo','wechat', 'douban'], // 启用的站点
-		disabled: ['google', 'facebook', 'twitter', 'linyin'], // 禁用的站点
-		wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
-		wechatQrcodeHelper: '立即下载发送专属二维码,邀请朋友加入',
-	};
-
-	socialShare('.social-share', $config);
-
 	layer.open({
 		content: "分享后需要小伙伴浏览您的分享链接才可以抽奖哟！",
 		btn: '确定'
