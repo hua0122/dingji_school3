@@ -39,17 +39,12 @@ function get_tel() {
 // 分享成功之后调一下
 // 根据分享人id获取电话号码
 function get_telfenxiang() {
-	let ajaxdata = {
-		id: getQueryString("fenxiang_id")
-	}
-	let data = ajaxPost(activity_get_tel, ajaxdata);
-	if (data.status == "200") {
-		share_after(data.data.tel)
-	}
+	share_after(getQueryString("fenxiang_id"))
 }
+
 function share_after(tel) {
 	let ajaxdata = {
-		tel: tel
+		fenxiang_id: tel
 	}
 	let data = ajaxPost(activity_share_after, ajaxdata);
 }
@@ -155,8 +150,6 @@ function invite() {
 }
 // 预存
 function prestore() {
-
-
 	let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 	let ajaxdata = {
 		amount: 100,
@@ -190,7 +183,7 @@ function prestore() {
 						yes: function(index, layero) {
 							layer.close(index);
 							locationReplace(true);
-							
+
 						}
 					});
 
@@ -244,12 +237,11 @@ function prestore_h5() {
 		id = yaoqing_id;
 	} else {
 		id = getQueryString("fenxiang_id");
-
 	}
 	let ajaxdata = {
 		amount: 100,
 		tel: userInfo.tel,
-		id: id,
+		id: userInfo.pid,
 		school_id: school_id
 	}
 	let data = ajaxPost(activity_prestore_h5, ajaxdata);
@@ -380,7 +372,7 @@ function downloadIamge(selector, name) {
 }
 
 function locationReplace(type) {
-	if(type==true){
+	if (type == true) {
 		window.location.reload();
 	}
 	if (window.location.href.indexOf("openid") != -1) {
