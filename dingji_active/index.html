@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/share.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/layer.css" />
-		<title>活动首页</title>
+		<title>0元学车，你敢不敢来</title>
 		<style type="text/css">
 			.layui-m-layerchild {
 				background: #fff;
@@ -236,7 +236,6 @@
 		<script type="text/javascript" src="http://cdn.staticfile.org/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
 		<script src="js/navigator.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			
 			let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 			if (userInfo == null || userInfo == "" || userInfo == "null" || userInfo == undefined || userInfo == "undefined") {} else {
 				// 分享链接生成
@@ -288,13 +287,13 @@
 						window.location.reload();
 					})
 					let openid = getQueryStringdengy("openid");
-					if (openid== null || openid== undefined || openid== "null" || openid== "") {
-						
-					}else{
+					if (openid == null || openid == undefined || openid == "null" || openid == "") {
+
+					} else {
 						var openidg = getQueryStringdengy("openid");
 						localStorage.setItem("openid", openidg);
 						prestore();
-						}
+					}
 					// 个人信息
 					info();
 					// 邀请列表
@@ -325,14 +324,14 @@
 						if (ua.match(/MicroMessenger/i) == "micromessenger") {
 							let openid = localStorage.getItem("openid");
 							if (openid == null || openid == "" || openid == "null" || openid == undefined || openid == "undefined") {
-								window.location.href =getwxinfo;
+								window.location.href = getwxinfo;
 							} else {
 								prestore();
 							}
 						} else {
 							prestore_h5();
-// 							$("#gzh").css("display", "flex");
-// 							$(".lmi-popo").show();
+							// 							$("#gzh").css("display", "flex");
+							// 							$(".lmi-popo").show();
 
 						}
 					})
@@ -362,10 +361,10 @@
 					let recomphone = $("#recomphone").val();
 					if (recomphone == "" || recomphone == null || recomphone == undefined || recomphone == "null" || recomphone ==
 						"undefined") {
-							layer.open({
-								content: '电话号码不能为空',
-								btn: '确定'
-							});
+						layer.open({
+							content: '电话号码不能为空',
+							btn: '确定'
+						});
 						return;
 					}
 					if (!regList.phone.test(recomphone)) {
@@ -410,7 +409,7 @@
 					let ajaxdata = {
 						tel: recomphone,
 						code: recomcode,
-						name:recomname,
+						name: recomname,
 						school_id: school_id,
 						id: id
 					}
