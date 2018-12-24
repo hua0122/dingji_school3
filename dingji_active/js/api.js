@@ -111,6 +111,7 @@ function info() {
 		$(".total_amount").html(data.data.total_amount)
 		if (data.data.is_pay == 1) {
 			$(".ycmoney").html("300");
+			$(".ycfxyq").show();
 		} else {
 			$(".ycmoney").html("0");
 		}
