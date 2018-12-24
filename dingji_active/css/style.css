@@ -149,7 +149,8 @@
 	width: 100%;
 	color: #fff;
 	font-size: .15rem;
-	line-height: .15rem;
+	display: flex;
+	align-items: center;
 }
 
 .main .content .item .title .right dt {
