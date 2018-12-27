@@ -424,8 +424,9 @@ function geocoderfun(indexdata) {
 				"garetextid": indexdata[dataindex].id + "/",
 				"garetextname": indexdata[dataindex].name
 			}))
+			let garetextid = JSON.parse(sessionStorage.getItem("garetext"))
 			for (var c = 0; c < $('input:radio[name="city"]').length; c++) {
-				if ($('input:radio[name="city"]').eq(c).val() == indexdata[dataindex].id) {
+				if ($('input:radio[name="city"]').eq(c).val() == garetextid.garetextid) {
 					$('input:radio[name="city"]').eq(c).attr("checked", true);
 				}
 			}
