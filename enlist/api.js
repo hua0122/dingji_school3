@@ -412,6 +412,10 @@ function geocoderfun(indexdata) {
 				$("#city").val(indexdata[dataindex].id);
 				get_list(indexdata[dataindex].id);
 				$("#text").html(indexdata[dataindex].name);
+				sessionStorage.setItem("garetext", JSON.stringify({
+					"garetextid": indexdata[dataindex].id,
+					"garetextname": indexdata[dataindex].name
+				}))
 				for (var i = 0; i < $('input:radio[name="city"]').length; i++) {
 					if ($('input:radio[name="city"]').eq(i).val() == indexdata[dataindex].id) {
 						$('input:radio[name="city"]').eq(i).attr("checked", true);
