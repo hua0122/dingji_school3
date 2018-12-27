@@ -397,34 +397,35 @@ function test() {
 }
 
 function geocoderfun(indexdata) {
-	for (var i = 0; i < indexdata.length; i++) {
 		let distance = [];
+	for (var i = 0; i < indexdata.length; i++) {
 		if (indexdata[i].Distance <= 5) {
 			distance.push({
 				id: i,
 				distance: indexdata[i].Distance
 			});
 		}
+	
+	}
 		if (distance.length != 0) {
-			let distanceMin = Math.min.apply(null, distance); //最小值
-			if (distance.length == 1) {
-				debugger
-				let dataindex = distance[0].id;
-				$("#city").val(indexdata[dataindex].id);
-				get_list(indexdata[dataindex].id);
-				$("#text").html(indexdata[dataindex].name);
-				sessionStorage.setItem("garetext", JSON.stringify({
-					"garetextid": indexdata[dataindex].id+"/",
-					"garetextname": indexdata[dataindex].name
-				}))
+				let distanceMin = Math.min.apply(null, distance); //最小值
+				if (distance.length == 1) {
+					debugger
+					let dataindex = distance[0].id;
+					$("#city").val(indexdata[dataindex].id);
+					get_list(indexdata[dataindex].id);
+					$("#text").html(indexdata[dataindex].name);
+					sessionStorage.setItem("garetext", JSON.stringify({
+						"garetextid": indexdata[dataindex].id+"/",
+						"garetextname": indexdata[dataindex].name
+					}))
+				} else {
+					$(".dialog_open").show();
+				}
 			} else {
+	
 				$(".dialog_open").show();
 			}
-		} else {
-
-			$(".dialog_open").show();
-		}
-	}
 }
 
 // 我的协议
