@@ -408,6 +408,7 @@ function geocoderfun(indexdata) {
 		if (distance.length != 0) {
 			let distanceMin = Math.min.apply(null, distance); //最小值
 			if (distance.length == 1) {
+				alert(1)
 				let dataindex = distance[0].id;
 				$("#city").val(indexdata[dataindex].id);
 				get_list(indexdata[dataindex].id);
