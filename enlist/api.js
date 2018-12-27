@@ -482,6 +482,7 @@ function transform_order() {
 	if (data.status == "200") {
 		if (data.data == null || data.data == "null" || data.data == "") {
 			$(".confirm").show();
+			$("#tj_code_form").hide();
 		} else {
 			wx.ready(function() {
 				wx.chooseWXPay({
