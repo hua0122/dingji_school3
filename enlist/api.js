@@ -418,11 +418,13 @@ function geocoderfun(indexdata) {
 					"garetextname": indexdata[dataindex].name
 				}))
 				$(".dialog_open").hide(1);
-				for (var c = 0; c < $('input:radio[name="city"]').length; c++) {
+				console.log($('.dialog_open label').length)
+				console.log($('input:radio[name="city"]').length)
+				for (var c = 0; c < $('.dialog_open label').length; c++) {
 						alert(c)
-// 					if ($('input:radio[name="city"]').eq(c).val() == indexdata[dataindex].id) {
-// 						$('input:radio[name="city"]').eq(c).attr("checked", true);
-// 					}
+					if ($('.dialog_open label').eq(c).find('input:radio[name="city"]').val() == indexdata[dataindex].id) {
+						$('.dialog_open label').eq(c).find('input:radio[name="city"]').attr("checked", true);
+					}
 				}
 			} else {
 				alert(2)
