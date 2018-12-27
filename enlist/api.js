@@ -397,6 +397,7 @@ function test() {
 }
 
 function geocoderfun(indexdata) {
+	let src="";
 	for (var l = 0; l < indexdata.length; l++) {
 		src += "<label><font><input type='radio' name='city' value=" + indexdata[l].id + "/>" + indexdata[l].name +
 			"</font><font style='font-size:12px;'>" + Math.round(indexdata[l].Distance) + "km</font></label><br/>"
