@@ -275,6 +275,7 @@ function luck() {
 	let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 	let ajaxdata = {
 		tel: userInfo.tel,
+		school_id:school_id
 	}
 	let data = ajaxPost(activity_luck, ajaxdata);
 	if (data.status == "200") {
