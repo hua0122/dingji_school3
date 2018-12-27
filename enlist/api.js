@@ -412,6 +412,11 @@ function geocoderfun(indexdata) {
 				$("#city").val(indexdata[dataindex].id);
 				get_list(indexdata[dataindex].id);
 				$("#text").html(indexdata[dataindex].name);
+				for (var i = 0; i < $('input:radio[name="city"]').length; i++) {
+					if ($('input:radio[name="city"]').eq(i).val() == indexdata[dataindex].id) {
+						$('input:radio[name="city"]').eq(i).attr("checked", true);
+					}
+				}
 			} else {
 
 				$(".dialog_open").show();
@@ -493,8 +498,8 @@ function transform_order() {
 	} else if (data.status == "500") {
 		alert(data.msg);
 	} else {
+		alert(data.msg);
 		localStorage.hurl = window.location.href;
-		window.location.href = domainName + "/api/user/getwxinfo";
 	}
 
 }
