@@ -418,8 +418,8 @@ function geocoderfun(indexdata) {
 					"garetextname": indexdata[dataindex].name
 				}))
 				$(".dialog_open").hide(1);
-				console.log($('.dialog_open label').length)
-				console.log($('input:radio[name="city"]').length)
+				alert($('.dialog_open label').length)
+				alert($('input:radio[name="city"]').length)
 				for (var c = 0; c < $('.dialog_open label').length; c++) {
 						alert(c)
 					if ($('.dialog_open label').eq(c).find('input:radio[name="city"]').val() == indexdata[dataindex].id) {
