@@ -63,7 +63,11 @@ function area(longitude, latitude) {
 	let src = "";
 	if (uniqsortdata != null && uniqsortdata != "null" && uniqsortdata != undefined && uniqsortdata != "" && uniqsortdata !=
 		"undefined") {
-
+		for (var i = 0; i < uniqsortdata.length; i++) {
+			src += "<label><font><input type='radio' name='city' value=" + uniqsortdata[i].id + "/>" + uniqsortdata[i].name +
+				"</font><font style='font-size:12px;'>" + Math.round(uniqsortdata[i].Distance) + "km</font></label><br/>"
+		}
+		$("#area").html(src);
 	} else {
 
 		let ajaxdata = {
@@ -98,11 +102,7 @@ function area(longitude, latitude) {
 
 		geocoderfun(uniqsortdata);
 	}
-	for (var i = 0; i < uniqsortdata.length; i++) {
-		src += "<label><font><input type='radio' name='city' value=" + uniqsortdata[i].id + "/>" + uniqsortdata[i].name +
-			"</font><font style='font-size:12px;'>" + Math.round(uniqsortdata[i].Distance) + "km</font></label><br/>"
-	}
-	$("#area").html(src);
+
 }
 // 班别列表
 function get_list(city) {
@@ -397,6 +397,11 @@ function test() {
 }
 
 function geocoderfun(indexdata) {
+	for (var l = 0; l < indexdata.length; l++) {
+		src += "<label><font><input type='radio' name='city' value=" + indexdata[l].id + "/>" + indexdata[l].name +
+			"</font><font style='font-size:12px;'>" + Math.round(indexdata[l].Distance) + "km</font></label><br/>"
+	}
+	$("#area").html(src);
 	let distance = [];
 	for (var i = 0; i < indexdata.length; i++) {
 		if (indexdata[i].Distance <= 5) {
@@ -418,6 +423,11 @@ function geocoderfun(indexdata) {
 				"garetextid": indexdata[dataindex].id + "/",
 				"garetextname": indexdata[dataindex].name
 			}))
+			for (var c = 0; c < $('input:radio[name="city"]').length; c++) {
+				if ($('input:radio[name="city"]').eq(c).val() == indexdata[dataindex].id) {
+					$('input:radio[name="city"]').eq(c).attr("checked", true);
+				}
+			}
 		} else {
 			$(".dialog_open").show();
 		}
