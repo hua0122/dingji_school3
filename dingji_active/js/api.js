@@ -33,7 +33,7 @@ function get_tel() {
 	let data = ajaxPost(activity_get_tel, ajaxdata);
 	if (data.status == "200") {
 		$(".open-popo").css("display", "flex");
-		$(".phone").html(data.data.tel)
+		$(".phone").html(data.data.name+data.data.tel)
 	}
 }
 // 分享成功之后调一下
