@@ -417,9 +417,10 @@ function geocoderfun(indexdata) {
 					"garetextid": indexdata[dataindex].id,
 					"garetextname": indexdata[dataindex].name
 				}))
-				for (var i = 0; i < $('input:radio[name="city"]').length; i++) {
-					if ($('input:radio[name="city"]').eq(i).val() == indexdata[dataindex].id) {
-						$('input:radio[name="city"]').eq(i).attr("checked", true);
+				for (var c = 0; c < $('input:radio[name="city"]').length; c++) {
+					if ($('input:radio[name="city"]').eq(c).val() == indexdata[dataindex].id) {
+						alert(c)
+						$('input:radio[name="city"]').eq(c).attr("checked", true);
 					}
 				}
 			} else {
