@@ -63,11 +63,7 @@ function area(longitude, latitude) {
 	let src = "";
 	if (uniqsortdata != null && uniqsortdata != "null" && uniqsortdata != undefined && uniqsortdata != "" && uniqsortdata !=
 		"undefined") {
-for (var i = 0; i < uniqsortdata.length; i++) {
-		src += "<label><font><input type='radio' name='city' value=" + uniqsortdata[i].id + "/>" + uniqsortdata[i].name +
-			"</font><font style='font-size:12px;'>" + Math.round(uniqsortdata[i].Distance) + "km</font></label><br/>"
-	}
-	$("#area").html(src);
+
 	} else {
 
 		let ajaxdata = {
@@ -100,15 +96,13 @@ for (var i = 0; i < uniqsortdata.length; i++) {
 		uniqsortdata = uniq(sortdata);
 		sessionStorage.setItem("uniqsortdata", JSON.stringify(uniqsortdata))
 
-		for (var i = 0; i < uniqsortdata.length; i++) {
-			src += "<label><font><input type='radio' name='city' value=" + uniqsortdata[i].id + "/>" + uniqsortdata[i].name +
-				"</font><font style='font-size:12px;'>" + Math.round(uniqsortdata[i].Distance) + "km</font></label><br/>"
-		}
-		$("#area").html(src);
-		
-				geocoderfun(uniqsortdata);
+		geocoderfun(uniqsortdata);
 	}
-	
+	for (var i = 0; i < uniqsortdata.length; i++) {
+		src += "<label><font><input type='radio' name='city' value=" + uniqsortdata[i].id + "/>" + uniqsortdata[i].name +
+			"</font><font style='font-size:12px;'>" + Math.round(uniqsortdata[i].Distance) + "km</font></label><br/>"
+	}
+	$("#area").html(src);
 }
 // 班别列表
 function get_list(city) {
@@ -414,6 +408,7 @@ function geocoderfun(indexdata) {
 		if (distance.length != 0) {
 			let distanceMin = Math.min.apply(null, distance); //最小值
 			if (distance.length == 1) {
+				debugger
 				let dataindex = distance[0].id;
 				$("#city").val(indexdata[dataindex].id);
 				get_list(indexdata[dataindex].id);
