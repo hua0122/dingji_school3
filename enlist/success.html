@@ -107,14 +107,21 @@
 						overflow: hidden;
 						display: none;
 					}
-		
+					.confirm h1{
+						font-size: 1.8rem;
+						text-align: center;
+						line-height: 4rem;
+						color: #0067FF;
+						height: 4rem;
+						border-bottom: 1px solid #ddd;
+					}
 					.confirm .text {
-						padding: 1rem 1.5rem;
+						padding: 2rem 2.5rem;
 						box-sizing: border-box;
 						border-bottom: 1px solid #ddd;
 						color: #333;
+						text-align: center;
 					}
-		
 					.confirm .btn {
 						display: flex;
 					}
@@ -186,15 +193,27 @@
 				<a href="javascript:transform_order();" class="row application-btn" style="color: #FFFFFF;">申请体检</a>
 			</form>
 		</div>
-		<div class="confirm">
-			<div class="text">
-				体检码申请成功,您可以到学习中心最底部查看,也可以在微信公众号对话窗口的通知消息中进行查看
-			</div>
-			<div class="btn">
-				<a href="../user/study.html" class="item">去查看</a>
-				<a href="../index/index.html" class="item">返回首页</a>
-			</div>
-		</div>
+		
+		
+				<div class="confirm scok">
+					<h1>申请成功</h1>
+					<div class="text">
+						体检码申请成功,您可以到学习中心最底部查看,也可以在微信公众号对话窗口的通知消息中进行查看
+					</div>
+					<div class="btn">
+						<a href="../user/study.html" class="item">去查看</a>
+						<a href="../index/index.html" class="item">返回首页</a>
+					</div>
+				</div>
+				<div class="confirm gobaoming">
+					<h1></h1>
+					<div class="text">
+					</div>
+					<div class="btn">
+						<a href="../enlist/index.html" class="item">去报名</a>
+						<a  class="item close">取消</a>
+					</div>
+				</div>
 
 		<script src="../static/js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/custom1.js" type="text/javascript" charset="utf-8"></script>
@@ -221,6 +240,12 @@
 				$(".confirm").hide();
 					$("#tj_code_form").hide();
 					$(".popo").hide();
+				})
+				
+				$(".gobaoming .close").click(function(){
+					
+						$(".gobaoming").hide();
+						$(".popo").hide();
 				})
 			})
 		</script>

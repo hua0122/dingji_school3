@@ -481,7 +481,7 @@ function transform_order() {
 	let data = ajaxPost(sign_apply, ajaxdata)
 	if (data.status == "200") {
 		if (data.data == null || data.data == "null" || data.data == "") {
-			$(".confirm").show();
+			$(".scok").show();
 			$("#tj_code_form").hide();
 		} else {
 			wx.ready(function() {
@@ -510,7 +510,10 @@ function transform_order() {
 	} else if (data.status == "500") {
 		alert(data.msg);
 	} else {
-		alert(data.msg);
+		$(".gobaoming").show();
+		$("#tj_code_form").hide();
+		$(".gobaoming .text").html(data.msg)
+		$(".gobaoming h1").html("提示")
 		localStorage.hurl = window.location.href;
 	}
 
