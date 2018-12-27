@@ -390,9 +390,6 @@
 				$("#text").html(garetextid.garetextname);
 				area();
 				for (var i = 0; i < $('input:radio[name="city"]').length; i++) {
-					
-					alert($('input:radio[name="city"]').eq(i).val())
-					alert(garetextid.garetextid)
 					if ($('input:radio[name="city"]').eq(i).val() == garetextid.garetextid) {
 						$('input:radio[name="city"]').eq(i).attr("checked", true);
 					}

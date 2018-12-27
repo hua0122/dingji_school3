@@ -59,7 +59,6 @@ function get_area() {
 }
 
 function area(longitude, latitude) {
-	alert(longitude+", "+latitude)
 	let uniqsortdata = JSON.parse(sessionStorage.getItem("uniqsortdata"));
 	let src = "";
 	if (uniqsortdata != null && uniqsortdata != "null" && uniqsortdata != undefined && uniqsortdata != "" && uniqsortdata !=
@@ -418,7 +417,6 @@ function geocoderfun(indexdata) {
 					"garetextname": indexdata[dataindex].name
 				}))
 			} else {
-				alert(2)
 				$(".dialog_open").show();
 			}
 		} else {
