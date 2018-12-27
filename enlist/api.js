@@ -413,10 +413,11 @@ function geocoderfun(indexdata) {
 				$("#city").val(indexdata[dataindex].id);
 				get_list(indexdata[dataindex].id);
 				$("#text").html(indexdata[dataindex].name);
-// 				sessionStorage.setItem("garetext", JSON.stringify({
-// 					"garetextid": indexdata[dataindex].id,
-// 					"garetextname": indexdata[dataindex].name
-// 				}))
+				sessionStorage.setItem("garetext", JSON.stringify({
+					"garetextid": indexdata[dataindex].id,
+					"garetextname": indexdata[dataindex].name
+				}))
+				$(".dialog_open").hide(1);
 				for (var c = 0; c < $('input:radio[name="city"]').length; c++) {
 						alert(c)
 // 					if ($('input:radio[name="city"]').eq(c).val() == indexdata[dataindex].id) {
