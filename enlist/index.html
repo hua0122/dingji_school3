@@ -389,6 +389,8 @@
 				get_list(garetextid.garetextid);
 				$("#text").html(garetextid.garetextname);
 				area();
+				
+				alert($('.dialog_open label').length)
 				for (var i = 0; i < $('input:radio[name="city"]').length; i++) {
 					alert(11)
 					if ($('input:radio[name="city"]').eq(i).val() == garetextid.garetextid) {

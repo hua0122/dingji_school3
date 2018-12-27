@@ -59,7 +59,7 @@ function get_area() {
 }
 
 function area(longitude, latitude) {
-	alert(longitude, latitude)
+	alert(longitude+", "+latitude)
 	let uniqsortdata = JSON.parse(sessionStorage.getItem("uniqsortdata"));
 	let src = "";
 	if (uniqsortdata != null && uniqsortdata != "null" && uniqsortdata != undefined && uniqsortdata != "" && uniqsortdata !=
@@ -409,7 +409,6 @@ function geocoderfun(indexdata) {
 		if (distance.length != 0) {
 			let distanceMin = Math.min.apply(null, distance); //最小值
 			if (distance.length == 1) {
-				alert(1)
 				let dataindex = distance[0].id;
 				$("#city").val(indexdata[dataindex].id);
 				get_list(indexdata[dataindex].id);
@@ -418,15 +417,6 @@ function geocoderfun(indexdata) {
 					"garetextid": indexdata[dataindex].id,
 					"garetextname": indexdata[dataindex].name
 				}))
-				$(".dialog_open").hide(1);
-				alert($('.dialog_open label').length)
-				alert($('input:radio[name="city"]').length)
-				for (var c = 0; c < $('.dialog_open label').length; c++) {
-						alert(c)
-					if ($('.dialog_open label').eq(c).find('input:radio[name="city"]').val() == indexdata[dataindex].id) {
-						$('.dialog_open label').eq(c).find('input:radio[name="city"]').attr("checked", true);
-					}
-				}
 			} else {
 				alert(2)
 				$(".dialog_open").show();
