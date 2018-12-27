@@ -414,7 +414,7 @@ function geocoderfun(indexdata) {
 				get_list(indexdata[dataindex].id);
 				$("#text").html(indexdata[dataindex].name);
 				sessionStorage.setItem("garetext", JSON.stringify({
-					"garetextid": indexdata[dataindex].id,
+					"garetextid": indexdata[dataindex].id+"/",
 					"garetextname": indexdata[dataindex].name
 				}))
 			} else {
