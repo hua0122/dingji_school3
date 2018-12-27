@@ -59,6 +59,7 @@ function get_area() {
 }
 
 function area(longitude, latitude) {
+	alert(longitude, latitude)
 	let uniqsortdata = JSON.parse(sessionStorage.getItem("uniqsortdata"));
 	let src = "";
 	if (uniqsortdata != null && uniqsortdata != "null" && uniqsortdata != undefined && uniqsortdata != "" && uniqsortdata !=
