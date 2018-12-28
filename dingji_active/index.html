@@ -20,7 +20,8 @@
 				text-align: center;
 				line-height: .5rem;
 			}
-			.ycfxyq{
+
+			.ycfxyq {
 				display: none;
 			}
 		</style>
@@ -329,17 +330,14 @@
 								content: '请到微信外部进行支付',
 								btn: '确定'
 							});
-// 							let openid = localStorage.getItem("openid");
-// 							if (openid == null || openid == "" || openid == "null" || openid == undefined || openid == "undefined") {
-// 								window.location.href = getwxinfo;
-// 							} else {
-// 								prestore();
-// 							}
-						
+
+
 						} else {
 							prestore_h5();
-							// 							$("#gzh").css("display", "flex");
-							// 							$(".lmi-popo").show();
+							$(".ycbtn").css("pointer-events", "none");
+							setTimeout(function() {
+								$(".ycbtn").css("pointer-events", "visible");
+							}, 5000)
 
 						}
 					})

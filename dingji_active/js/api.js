@@ -230,6 +230,7 @@ function prestore() {
 
 // 预存
 function prestore_h5() {
+	
 	let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 	let yaoqing_id = getQueryString("yaoqing_id"),
 		id = "";
