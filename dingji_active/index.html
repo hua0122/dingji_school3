@@ -397,6 +397,13 @@
 						});
 						return;
 					}
+					if (!(/^[\u4e00-\u9fa5]{2,4}$/).test(recomname)) {
+						layer.open({
+							content: '真实姓名填写有误',
+							btn: '确定'
+						});
+						return;
+					}
 					if (recomphone == "" || recomphone == null || recomphone == undefined || recomphone == "null" || recomphone ==
 						"undefined") {
 						layer.open({
