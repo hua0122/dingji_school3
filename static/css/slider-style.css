@@ -352,5 +352,5 @@
 
 	.cs-circleslight .br-loading .img,
 	.cs-circleslight .br-large-loading .img {
-		background:url("../images/loading.gif") no-repeat center center;
+		/* background:url("../images/loading.gif") no-repeat center center; */
 	}
