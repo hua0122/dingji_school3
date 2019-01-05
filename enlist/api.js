@@ -160,7 +160,7 @@ function get_activity() {
 		for (var i = 0; i < data.data.length; i++) {
 			src += '<div class="modal-body">' +
 				'<input type="radio" value="' + data.data[i].id + '" class="activity_id" name="activity_id" style="width: 25px;">' +
-				'<div><img src="' + domainName + data.data[i].picurl + '" width="83" height="83"/> <br/>' + data.data[i].name +
+				'<div><img src="" data-src="' + domainName + data.data[i].picurl + '" width="83" height="83"/> <br/>' + data.data[i].name +
 				'</div>' +
 				'<div><span>' + data.data[i].description + '</span></div>' +
 				'</div>';
@@ -322,10 +322,7 @@ function submit_sign() {
 	let data = ajaxPost(sign_submit_sign, ajaxdata);
 
 	if (data.status == "200") {
-		var title = "易点学车";
-		var link = "http:/ydxctrue.yidianxueche.cn/client/";
-		var imgUrl = "http:/ydxctrue.yidianxueche.cn/client/";
-		var desc = "易点学车";
+
 		var type = "";
 		var dataUrl = "";
 		wx.ready(function() {

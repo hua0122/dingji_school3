@@ -62,11 +62,11 @@ function get_name(get_name, index_get_name) {
 		 
 	}
 	let data = ajaxGet(index_get_name, ajaxdata)
-	let srcone = "<img src=''  lazyload='true'  data-original='" + domainName + data.data[0].picurl + "'  />" +
-		"<img src=''  lazyload='true'  data-original='" + domainName + data.data[1].picurl + "' />";
-	let srctwo = "<img src=''  lazyload='true'  data-original='" + domainName + data.data[2].picurl + "' />" +
-		"<img src=''  lazyload='true'  data-original='" + domainName + data.data[3].picurl + "' />" +
-		"<img src=''  lazyload='true'  data-original='" + domainName + data.data[4].picurl + "'  />";
+	let srcone = "<img src=''  data-src='" + domainName + data.data[0].picurl + "'  />" +
+		"<img src=''  data-src='" + domainName + data.data[1].picurl + "' />";
+	let srctwo = "<img src=''  data-src='" + domainName + data.data[2].picurl + "' />" +
+		"<img src=''  data-src='" + domainName + data.data[3].picurl + "' />" +
+		"<img src=''  data-src='" + domainName + data.data[4].picurl + "'  />";
 	$(get_name).find(".img-one").html(srcone);
 	$(get_name).find(".img-two").html(srctwo);
 }
@@ -87,7 +87,7 @@ function get_beautiful() {
 			for (var i = 1; i < data.data.length; i++) {
 		
 				src += "<li>" +
-					"<span class='pic'><img src=''  lazyload='true'  data-original='" + domainName + data.data[i].picurl + "'></span>" +
+					"<span class='pic'><img src=''  data-src='" + domainName + data.data[i].picurl + "'></span>" +
 					"</li>";
 			}
 	}

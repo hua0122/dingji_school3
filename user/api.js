@@ -33,7 +33,7 @@ function study() {
 	if (data.status == "200") {
 		$(".nodata").hide();
 		$(".info").show();
-		$(".img-left").html('<img src="' + domainName + data.data.study.picurl + '" class="picurl" />')
+		$(".img-left").html('<img src="" data-src="' + domainName + data.data.study.picurl + '" class="picurl" />')
 		$(".infoaddress").text(data.data.study.address);
 		$("#lng").val(data.data.study.lng);
 		$("#lat").val(data.data.study.lat);

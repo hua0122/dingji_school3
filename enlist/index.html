@@ -34,8 +34,8 @@
 		<link rel="stylesheet" type="text/css" href="../static/css/custom.css" />
 		<link rel="stylesheet" type="text/css" href="../static/css/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="../static/css/new_add.css" />
-		<link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css"/>
-	<link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css" />
 	</head>
 
 	<style type="text/css">
@@ -80,7 +80,7 @@
 			width: 10px;
 			height: 10px;
 			border-radius: 100%;
-			
+
 			background: #fff;
 			color: #fff;
 		}
@@ -259,6 +259,7 @@
 		}
 
 		.nav-bar-item img {
+			width: 50px;
 			height: 50px;
 		}
 
@@ -280,19 +281,19 @@
 
 			<div class="row nav-bar">
 				<div class="col-xs-3 nav-bar-item">
-					<a href="../page/index.html?id=6"><img src="../static/images/vrxc.png" /><i>学车流程</i></a>
+					<a href="../page/index.html?id=6"><img src="" data-src="../static/images/vrxc.png" /><i>学车流程</i></a>
 				</div>
 				<div class="col-xs-3 nav-bar-item">
-					<a href="../page/index.html?id=7"><img src="../static/images/qbjl.png" /><i>优势服务</i></a>
+					<a href="../page/index.html?id=7"><img src="" data-src="../static/images/qbjl.png" /><i>优势服务</i></a>
 				</div>
 				<div class="col-xs-3 nav-bar-item">
-					<a href="../page/index.html?id=8"><img src="../static/images/fwys.png" /><i>学车保障</i></a>
+					<a href="../page/index.html?id=8"><img src="" data-src="../static/images/fwys.png" /><i>学车保障</i></a>
 				</div>
 				<div class="col-xs-3 nav-bar-item">
-					<a href="../page/index.html?id=9"><img src="../static/images/qbcd.png" /><i>常见问题</i></a>
+					<a href="../page/index.html?id=9"><img src="" data-src="../static/images/qbcd.png" /><i>常见问题</i></a>
 				</div>
 				<div class="col-xs-3 nav-bar-item">
-					<a href="../enlist/test.html"><img src="../static/images/vrxc.png" /><i>体检申请</i></a>
+					<a href="../enlist/test.html"><img src="" data-src="../static/images/vrxc.png" /><i>体检申请</i></a>
 				</div>
 
 			</div>
@@ -379,6 +380,8 @@
 	<script src="../static/js/apiRoot.js" type="text/javascript" charset="utf-8"></script>
 	<script src="api.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="../static/js/jquery.flexslider-min.js"></script>
+	<script src="../static/js/lazy-load-img.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/lazy-load.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			index();
@@ -459,5 +462,6 @@
 				pauseOnAction: false
 			});
 		});
+		
 	</script>
 </html>

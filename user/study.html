@@ -38,13 +38,13 @@
 		<link rel="stylesheet" type="text/css" href="../static/css/custom.css" />
 		<link rel="stylesheet" type="text/css" href="../static/css/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="../static/css/new_add.css" />
-	<link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css" />
 	</head>
 
 	<style>
 
-	
-	div:after,div:before{
+
+		div:after,div:before{
 		display: none;
 	}
     .img-left{
@@ -145,9 +145,8 @@
 							<input type="hidden" value="" id="lng" />
 							<input type="hidden" value="" id="lat" />
 							<span class="address" style="color: #0067ff;padding-right: 10px;">
-								<!-- <img src="../static/images/map1.png" width="25"style="top: 0px;" /> -->
-								
-									<span style="font-size: 1.6rem;" class="fa fa-map-marker"></span>
+
+								<span style="font-size: 1.6rem;" class="fa fa-map-marker"></span>
 								> </span>
 						</div>
 					</a>
@@ -160,7 +159,7 @@
 					</div>
 					<div class="col-xs-12">
 						<p class="infocontent">
-							
+
 						</p>
 					</div>
 					<div class="col-xs-12">
@@ -199,8 +198,8 @@
 						<div class="item">
 							<p class="b">体检源码<span class="span-right1 codecode"></span></p>
 							<p class="b">体检新码<span class="span-right1 codeverify"></span></p>
-							<p class="b">体检站位置<span class="span-right1 codestation_name"><span style="color: #0067ff;"><img
-										src="../static/images/map1.png" width="20" /> > </span></span></p>
+							<p class="b">体检站位置<span class="span-right1 codestation_name"><span style="color: #0067ff;">
+										<img src="" data-src="../static/images/map1.png" width="20" /> > </span></span></p>
 							<p class="b">体检码申请时间<span class="span-right1 codecreate_time"></span></p>
 						</div>
 					</div>
@@ -234,9 +233,9 @@
 
 <script src="../static/js/apiRoot.js" type="text/javascript" charset="utf-8"></script>
 <script src="api.js" type="text/javascript" charset="utf-8"></script>
+<script src="../static/js/lazy-load-img.js" type="text/javascript" charset="utf-8"></script>
+<script src="../static/js/lazy-load.js" type="text/javascript" charset="utf-8"></script>
 <script>
 	$(function() {
-		study();
-
-	})
+				study();
 </script>
