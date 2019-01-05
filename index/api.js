@@ -31,10 +31,10 @@ function get_banner() {
 	if(data.status=="200"){
 		
 		$(".cs-circleslight .br-large-loading .img").css({
-			"background":"url("+domainName + data.data[0].picurl+") no-repeat center center";
+			"background":"url("+domainName + data.data[0].picurl+") no-repeat center center"
 		})
 		$(".cs-circleslight .br-loading .img").css({
-			"background":"url("+domainName + data.data[0].picurl+") no-repeat center center";
+			"background":"url("+domainName + data.data[0].picurl+") no-repeat center center"
 		})
 	for (var i = 1; i < data.data.length; i++) {
 		src +=
