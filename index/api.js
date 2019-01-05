@@ -32,14 +32,14 @@ function get_banner() {
 	for (var i = 1; i < data.data.length; i++) {
 		src +=
 			"<li data-delay='5' style='height: 100%;' data-src='5' data-trans3d='tr6,tr17,tr22,tr23,tr26,tr27,tr29,tr32,tr34,tr35,tr53,tr54,tr62,tr63,tr4,tr13' data-trans2d='tr3,tr8,tr12,tr19,tr22,tr25,tr27,tr29,tr31,tr34,tr35,tr38,tr39,tr41'>" +
-			"<img style='height: 100%;' src='../static/images/blank.png' data-src='" + domainName + data.data[i].picurl +
+			"<img style='height: 100%;'   src='../static/images/blank.png' data-src='" + domainName + data.data[i].picurl +
 			"' data-thumb='" +
 			domainName + data.data[i].picurl + "'/>" +
 			"</li>";
 	}
 	let bannersrc =
 		"<li data-delay='5' style='height: 100%;' data-src='5' data-trans3d='tr6,tr17,tr22,tr23,tr29,tr27,tr32,tr34,tr35,tr53,tr54,tr62,tr63,tr4,tr13,tr45' data-trans2d='tr3,tr8,tr12,tr19,tr22,tr25,tr27,tr29,tr31,tr34,tr35,tr38,tr39,tr41'>" +
-		"<img style='height: 100%;' src='" + domainName + data.data[0].picurl + "'  data-thumb='" + domainName + data.data[0]
+		"<img style='height: 100%;'  src='" + domainName + data.data[0].picurl + "'  data-thumb='" + domainName + data.data[0]
 		.picurl + "'/>" +
 		" </li>" + src;
 	$("#volistbanner1").html(bannersrc);
@@ -62,11 +62,11 @@ function get_name(get_name, index_get_name) {
 		 
 	}
 	let data = ajaxGet(index_get_name, ajaxdata)
-	let srcone = "<img src='" + domainName + data.data[0].picurl + "'  />" +
-		"<img src='" + domainName + data.data[1].picurl + "' />";
-	let srctwo = "<img src='" + domainName + data.data[2].picurl + "' />" +
-		"<img src='" + domainName + data.data[3].picurl + "' />" +
-		"<img src='" + domainName + data.data[4].picurl + "'  />";
+	let srcone = "<img src=''  lazyload='true'  data-original='" + domainName + data.data[0].picurl + "'  />" +
+		"<img src=''  lazyload='true'  data-original='" + domainName + data.data[1].picurl + "' />";
+	let srctwo = "<img src=''  lazyload='true'  data-original='" + domainName + data.data[2].picurl + "' />" +
+		"<img src=''  lazyload='true'  data-original='" + domainName + data.data[3].picurl + "' />" +
+		"<img src=''  lazyload='true'  data-original='" + domainName + data.data[4].picurl + "'  />";
 	$(get_name).find(".img-one").html(srcone);
 	$(get_name).find(".img-two").html(srctwo);
 }
@@ -87,7 +87,7 @@ function get_beautiful() {
 			for (var i = 1; i < data.data.length; i++) {
 		
 				src += "<li>" +
-					"<span class='pic'><img src='" + domainName + data.data[i].picurl + "'></span>" +
+					"<span class='pic'><img src=''  lazyload='true'  data-original='" + domainName + data.data[i].picurl + "'></span>" +
 					"</li>";
 			}
 	}
