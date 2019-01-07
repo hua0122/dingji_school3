@@ -167,8 +167,8 @@ function get_activity() {
 				'</div>';
 		}
 	}
-
-	$("#activity").html(src);
+	let boxsrc="<div class='boxsrc'>"+src+"</div>"
+	$("#activity").html(boxsrc);
 }
 // 优惠券选择
 function yhq_code(code) {
