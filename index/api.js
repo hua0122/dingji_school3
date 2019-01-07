@@ -14,6 +14,8 @@ let index_get_student = "/api/index/get_student";
 let index_get_activity = "/api/index/get_activity";
 // 首页api
 function get_banner() {
+	
+	var cuteslider3 = new Cute.Slider();
 	let data;
 	let get_banner_data = JSON.parse(sessionStorage.getItem("get_banner_data"));
 	if (get_banner_data != null && get_banner_data != undefined && get_banner_data != "null" && get_banner_data != "") {
@@ -29,12 +31,11 @@ function get_banner() {
 	let src = "";
 
 	if (data.status == "200") {
-		$("#cuteslider_3_wrapper").css({
+		$("#cuteslider_3").css({
 			"background": "url(" + domainName + data.data[0].picurl + ") no-repeat center",
 			"background-size": "100% 100%",
 			"width": "100%"
 		})
-
 		for (var i = 1; i < data.data.length; i++) {
 			src +=
 				"<li class='load' data-delay='5' style='height: 100%;' data-src='5' data-trans3d='tr6,tr17,tr22,tr23,tr26,tr27,tr29,tr32,tr34,tr35,tr53,tr54,tr62,tr63,tr4,tr13' data-trans2d='tr3,tr8,tr12,tr19,tr22,tr25,tr27,tr29,tr31,tr34,tr35,tr38,tr39,tr41'>" +
@@ -50,30 +51,29 @@ function get_banner() {
 			.picurl + "'/>" +
 			" </li>" + src;
 		$("#volistbanner1").html(bannersrc);
-		var cuteslider3 = new Cute.Slider();
 		cuteslider3.setup("cuteslider_3", "cuteslider_3_wrapper", "../static/css/slider-style.css");
 		cuteslider3.api.addEventListener(Cute.SliderEvent.CHANGE_START, function(event) {
-			$("#cuteslider_3_wrapper").css({
+			$("#cuteslider_3").css({
 				"background": ""
 			})
 		});
 		cuteslider3.api.addEventListener(Cute.SliderEvent.CHANGE_END, function(event) {
-			$("#cuteslider_3_wrapper").css({
+			$("#cuteslider_3").css({
 				"background": ""
 			})
 		});
 		cuteslider3.api.addEventListener(Cute.SliderEvent.WATING, function(event) {
-			$("#cuteslider_3_wrapper").css({
+			$("#cuteslider_3").css({
 				"background": ""
 			})
 		});
 		cuteslider3.api.addEventListener(Cute.SliderEvent.CHANGE_NEXT_SLIDE, function(event) {
-			$("#cuteslider_3_wrapper").css({
+			$("#cuteslider_3").css({
 				"background": ""
 			})
 		});
 		cuteslider3.api.addEventListener(Cute.SliderEvent.WATING_FOR_NEXT, function(event) {
-			$("#cuteslider_3_wrapper").css({
+			$("#cuteslider_3").css({
 				"background": ""
 			})
 		});

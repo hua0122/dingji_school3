@@ -7,7 +7,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="format-detection" content="telephone=no">
-		<title>易点学车</title>
+		<title>鼎吉驾校</title>
 		<meta name="description" content="Yan">
 		<meta name="keywords" content="Yan">
 		<meta name="author" content="Yan">
@@ -45,11 +45,63 @@
 		<link rel="stylesheet" type="text/css" href="../static/css/iconfont.css">
 		<link rel="stylesheet" type="text/css" href="../static/css/new_add.css" />
 		<style type="text/css">
-			.container{
+			.container {
 				padding-bottom: 10rem;
 			}
+
+			#activity {
+				display: flex;
+				padding: 3rem 2rem;
+				box-sizing: border-box;
+				justify-content: space-between;
+				overflow-x: scroll;
+			}
+
+			#activity .modal-body input {
+				display: none;
+			}
+
+			#activity .modal-body {
+				margin-left: 0;
+				padding: 2rem 1rem;
+			}
+
+			.modal-body-active {
+				position: relative;
+			}
+
+			.modal-body-active::after {
+				content: "";
+				widows: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				border: 1px solid #0067FF;
+				border-radius: 1rem;
+			}
+
+			.activity-name {
+				flex: 1;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				text-align: right;
+			}
+
+			.yhq-code {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				text-align: right;
+			}
+			.more-jt{
+				margin-left: 1rem;
+			}
 		</style>
-	<link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css" />
 	</head>
 
 	<body>
@@ -73,7 +125,7 @@
 							</span></span></span>
 					<span class="map right">
 						<!-- <img src="../static/images/map1.png" width="20" /> -->
-						<span  class="fa fa-map-marker"></span>
+						<span class="fa fa-map-marker"></span>
 						>
 					</span>
 				</a>
@@ -81,12 +133,13 @@
 
 			<div class="row address" onclick="javascript:jts()">
 				<span class="left">活动</span>
-				<span class="map activity right"> > </span>
+				<span class="map activity-tjm activity right"><span class="activity-name"></span>
+					<span yhqid="" id="coupon_id" class="yhq-code"></span><span class="more-jt">></span></span>
 			</div>
 
 			<div class="row address" onclick="javascript:dr_submit()">
 				<span class="left">推荐码</span>
-				<span class="map activity right"> 填写推荐码 > </span>
+				<span class="map activity-tjm tjm-code right" id="inviter" inviterid="">填写推荐码 <span class="more-jt">></span></span>
 			</div>
 
 			<div class="row address total" id="total">
@@ -109,7 +162,7 @@
 						<label for="color-input-red"></label>
 
 						<span class="text">我已阅读并同意</span>
-						<span class="color"><a href="../enlist/agreement.html">《易点学车学车协议》</a> </span>
+						<span class="color"><a href="../enlist/agreement.html">《鼎吉驾校学车协议》</a> </span>
 					</span>
 					<span class="right" id="other" onclick="javascript:other()">其他</span></div>
 			</div>
@@ -211,6 +264,8 @@
 
 		<script src="../static/js/apiRoot.js" type="text/javascript" charset="utf-8"></script>
 		<script src="api.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/js/lazy-load-img.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/js/lazy-load.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 			//点击选中 再次点击取消
 			$(function() {
@@ -280,41 +335,51 @@
 
 				});
 				//活动选择
-				$('input:radio[name="activity_id"]').on("click", function() {
-
-					let total_count = sessionStorage.getItem("total_count");
-					if ($(this).context.checked) {
-						var activity = this.value;
-						let ajaxdata = {
-							activity_id: activity
-						};
-						let data = ajaxPost(sign_activity_detail, ajaxdata);
-						if (data.status == "400") {
-							alert(data.msg);
-						} else {
-							if (data.data.type == 1 || data.data.type == "1" || data.data.type == 2 || data.data.type == "2") {
-								var count = parseFloat(parseFloat(grade_detail.price) - data.data.amount).toFixed(2);
-							}
-							if (data.data.type == 3 || data.data.type == "3") {
-								var count = parseFloat(parseFloat(grade_detail.price) + data.data.amount).toFixed(2);
-							}
-							$(".total-count").html(count);
-							sessionStorage.setItem("total_count", count);
-						}
+				$("#activity .modal-body").on("click", function() {
+					if ($(this).hasClass("modal-body-active")) {
+						$(this).removeClass("modal-body-active");
+						$(".activity .activity-name").html("");
 					} else {
-						$(".total-count").html(parseFloat(grade_detail.price).toFixed(2));
-						sessionStorage.setItem("total_count", parseFloat(grade_detail.price).toFixed(2));
+						$('input:radio[name="activity_id"]').attr("checked", false);
+						$(this).addClass("modal-body-active").siblings(".modal-body").removeClass("modal-body-active");
+						$(this).find('input:radio[name="activity_id"]').attr("checked", true);
+						let total_count = sessionStorage.getItem("total_count");
+						if ($(this).find('input:radio[name="activity_id"]').attr("checked")) {
+							var activity = $(this).find('input:radio[name="activity_id"]').val();
+							let ajaxdata = {
+								activity_id: activity
+							};
+							let data = ajaxPost(sign_activity_detail, ajaxdata);
+							if (data.status == "400") {
+								alert(data.msg);
+							} else {
+								if (data.data.type == 1 || data.data.type == "1" || data.data.type == 2 || data.data.type == "2") {
+									var count = parseFloat(parseFloat(grade_detail.price) - data.data.amount).toFixed(2);
+								}
+								if (data.data.type == 3 || data.data.type == "3") {
+									var count = parseFloat(parseFloat(grade_detail.price) + data.data.amount).toFixed(2);
+								}
+
+								$(".activity .activity-name").html(data.data.name);
+
+
+								$(".activity").removeClass("activity-tjm");
+								$(".total-count").html(count);
+								sessionStorage.setItem("total_count", count);
+							}
+						} else {
+							$(".total-count").html(parseFloat(grade_detail.price).toFixed(2));
+							sessionStorage.setItem("total_count", parseFloat(grade_detail.price).toFixed(2));
+						}
 					}
 				})
-				
-							inputblur();
+				inputblur();
 
 			});
 
 
 			//优惠券确认
-			$("#yhq").click(function() {
-
+			$("#yhq").on("click", function() {
 				$(".jts").hide();
 				//do something
 				var code = $("#yhq_code").val();
@@ -329,8 +394,8 @@
 				$(".dialog_open").hide();
 				//do something 查询推荐码是否有效
 				var code = $("#code").val();
-				if (code) {
 
+				if (code) {
 					referral(code);
 				}
 
@@ -351,8 +416,6 @@
 			function other() {
 				$(".other").show();
 			}
-
-
 		</script>
 
 

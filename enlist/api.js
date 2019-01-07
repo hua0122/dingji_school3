@@ -160,7 +160,8 @@ function get_activity() {
 		for (var i = 0; i < data.data.length; i++) {
 			src += '<div class="modal-body">' +
 				'<input type="radio" value="' + data.data[i].id + '" class="activity_id" name="activity_id" style="width: 25px;">' +
-				'<div><img src="" data-src="' + domainName + data.data[i].picurl + '" width="83" height="83"/> <br/>' + data.data[i].name +
+				'<div><img src="" data-src="' + domainName + data.data[i].picurl + '" width="83" height="83"/> <br/>' + data.data[i]
+				.name +
 				'</div>' +
 				'<div><span>' + data.data[i].description + '</span></div>' +
 				'</div>';
@@ -182,26 +183,34 @@ function yhq_code(code) {
 	} else if (data.status == "000") {
 		alert(data.msg);
 		$("#yhq_code").val("");
-	} else {
-		$("#coupon").html('<input type="hidden" name="coupon_id" id="coupon_id" value="' + data.res.id + '"/>');
-		var count = parseFloat($(".total-count").html() - data.res.amount).toFixed(2);
+	} else if (data.status == "200") {
+		$("#coupon").html('<input type="hidden" name="coupon_id" id="coupon_id" value="' + data.data.id + '"/>');
+		var count = parseFloat($(".total-count").html() - data.data.amount).toFixed(2);
 		$(".total-count").html(count);
 		sessionStorage.setItem("total_count", count);
-		$("#yhq").attr('disabled', true);
+		// $("#yhq").attr('disabled', true);
+		$(".yhq-code").html(data.data.name);
+		$(".yhq-code").attr("yhqid", data.data.id);
+		$(".yhq-code").css({
+			"flex": 1
+		})
+		$(".activity").removeClass("activity-tjm");
 	}
 }
 // 推荐码确认
 function referral(code) {
-
 	let ajaxdata = {
 		code: code
 	};
 	let data = ajaxPost(sign_referral, ajaxdata)
-	if (data.status == "000") {
+	if (data.status == "200") {
+		$("#referral").html('<input type="hidden" name="inviter" id="inviter" value="' + data.data.id + '"/>');
+		$(".tjm-code").html(data.data.code + '<span class="more-jt">></span>');
+		$("#inviter").attr("inviterid", data.data.code)
+		$(".tjm-code").removeClass("activity-tjm");
+	} else {
 		alert(data.msg);
 		$("#code").val("");
-	} else {
-		$("#referral").html('<input type="hidden" name="inviter" id="inviter" value="' + data.data.id + '"/>');
 
 	}
 }
@@ -275,7 +284,7 @@ function submit_sign() {
 	}
 
 	if (!$('#color-input-red').is(':checked')) {
-		alert('请先阅读并同意易点学车学车协议');
+		alert('请先阅读并同意鼎吉驾校学车协议');
 		return false;
 	}
 
@@ -285,8 +294,8 @@ function submit_sign() {
 	var area_id = $("#area_id").val(); //场地id
 
 	var activity_id = $('input:radio[name="activity_id"]:checked').val(); //活动id
-	var coupon = $("#coupon_id").val(); //优惠券
-	var inviter = $("#inviter").val(); //邀请人 推荐码
+	var coupon = $("#coupon_id").attr("yhqid"); //优惠券
+	var inviter = $("#inviter").attr("inviterid"); //邀请人 推荐码
 	var pay_type = $('input:radio[name="other"]:checked').val(); //缴费类型
 
 	var payment = "";
@@ -394,7 +403,7 @@ function test() {
 }
 
 function geocoderfun(indexdata) {
-	let src="";
+	let src = "";
 	for (var l = 0; l < indexdata.length; l++) {
 		src += "<label><font><input type='radio' name='city' value=" + indexdata[l].id + "/>" + indexdata[l].name +
 			"</font><font style='font-size:12px;'>" + Math.round(indexdata[l].Distance) + "km</font></label><br/>"
