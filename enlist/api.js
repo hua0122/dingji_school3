@@ -167,7 +167,7 @@ function get_activity() {
 				'</div>';
 		}
 	}
-	let boxsrc="<div class='boxsrc'>"+src+"</div>"
+	let boxsrc = "<div class='boxsrc'>" + src + "</div>"
 	$("#activity").html(boxsrc);
 }
 // 优惠券选择
@@ -206,7 +206,7 @@ function referral(code) {
 	if (data.status == "200") {
 		$("#referral").html('<input type="hidden" name="inviter" id="inviter" value="' + data.data.id + '"/>');
 		$(".tjm-code").html(data.data.code + '<span class="more-jt">></span>');
-		$("#inviter").attr("inviterid", data.data.code)
+		$("#inviter").attr("inviterid", data.data.id)
 		$(".tjm-code").removeClass("activity-tjm");
 	} else {
 		alert(data.msg);
@@ -331,7 +331,11 @@ function submit_sign() {
 	let data = ajaxPost(sign_submit_sign, ajaxdata);
 
 	if (data.status == "200") {
-
+		var check_val = $('input:radio[name="other"]:checked').val();
+		if (check_val == 3) {
+			alert("报名成功")
+			return
+		}
 		var type = "";
 		var dataUrl = "";
 		wx.ready(function() {
