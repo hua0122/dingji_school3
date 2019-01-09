@@ -284,7 +284,7 @@ function submit_sign() {
 	}
 
 	if (!$('#color-input-red').is(':checked')) {
-		alert('请先阅读并同意鼎吉驾校学车协议');
+		alert('请先阅读并同意易点学车学车协议');
 		return false;
 	}
 
