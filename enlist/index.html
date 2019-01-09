@@ -410,10 +410,10 @@
 			$("#confirm").click(function() {
 				//获取选中的值
 				var city = $('input:radio[name="city"]:checked').val();
-				// 				if (city == null) {
-				// 					alert("请选择一个区域");
-				// 					return false;
-				// 				}
+								if (city == null) {
+									alert("请选择一个区域");
+									return false;
+								}
 				get_list(city);
 				$(".dialog_open").hide();
 				var text = $('input:radio[name="city"]:checked')[0].nextSibling.nodeValue;
