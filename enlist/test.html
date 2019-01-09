@@ -121,6 +121,24 @@
 				color: #333;
 				text-align: center;
 			}
+			.confirm .text span{
+				color: #0067FF;
+				display: block;
+			}
+			.confirm .text .titl{
+				text-align: right;
+			}
+			.confirm .text .code-box{
+				text-align: left;
+				box-sizing: border-box;
+			}
+			.confirm .text .code-box >div{
+				display: flex;
+				justify-content: center;
+			}
+			.confirm .text .code-box >div span{
+				width: 50%;
+			}
 			.confirm .btn {
 				display: flex;
 			}
@@ -192,9 +210,17 @@
 		</div>
 
 		<div class="confirm scok">
-			<h1>申请成功</h1>
+			<h1>您的体检码申请成功</h1>
 			<div class="text">
-				体检码申请成功,您可以到学习中心最底部查看,也可以在微信公众号对话窗口的通知消息中进行查看
+				<div class="code-box">
+					<div>
+						<span class="titl">体检码：</span><span class="tjm-codedata"></span>
+					</div>
+					<div>
+						<span class="titl">验证码：</span><span class="yzm-codedata"></span>
+					</div>
+				</div><br/>您也可以后续到公众号对话窗口查看或者点击下方按钮到您的学习中心查看
+				<!-- 体检码申请成功,您可以到学习中心最底部查看,也可以在微信公众号对话窗口的通知消息中进行查看 -->
 			</div>
 			<div class="btn">
 				<a href="../user/study.html" class="item">去查看</a>

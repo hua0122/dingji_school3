@@ -169,6 +169,9 @@ function get_activity() {
 	}
 	let boxsrc = "<div class='boxsrc'>" + src + "</div>"
 	$("#activity").html(boxsrc);
+	if(src==""){
+		$("#activity").remove();
+	}
 }
 // 优惠券选择
 function yhq_code(code) {
@@ -284,7 +287,7 @@ function submit_sign() {
 	}
 
 	if (!$('#color-input-red').is(':checked')) {
-		alert('请先阅读并同意易点学车学车协议');
+		alert('请先阅读并同意鼎吉驾校学车协议');
 		return false;
 	}
 
@@ -519,6 +522,11 @@ function transform_order() {
 
 	} else if (data.status == "500") {
 		alert(data.msg);
+	}  else if (data.status == "2000") {
+		$(".yzm-codedata").text(data.data.code);
+		$(".tjm-codedata").text(data.data.random);
+		$(".scok").show();
+		$("#tj_code_form").hide();
 	} else {
 		$(".gobaoming").show();
 		$("#tj_code_form").hide();
