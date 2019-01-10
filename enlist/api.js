@@ -209,7 +209,7 @@ function referral(code) {
 	if (data.status == "200") {
 		$("#referral").html('<input type="hidden" name="inviter" id="inviter" value="' + data.data.id + '"/>');
 		$(".tjm-code").html(data.data.code + '<span class="more-jt">></span>');
-		$("#inviter").attr("inviterid", data.data.code)
+		$("#inviter").attr("inviterid", data.data.phone)
 		$(".tjm-code").removeClass("activity-tjm");
 	} else {
 		alert(data.msg);
