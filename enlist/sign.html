@@ -54,15 +54,18 @@
 				padding: 3rem 2rem;
 				box-sizing: border-box;
 			}
-			.boxsrc{
-				
-					display: flex;
+
+			.boxsrc {
+
+				display: flex;
 				justify-content: space-between;
 				overflow-x: scroll;
 			}
-			.boxsrc::-webkit-scrollbar{
+
+			.boxsrc::-webkit-scrollbar {
 				width: 0;
 			}
+
 			#activity .modal-body input {
 				display: none;
 			}
@@ -103,7 +106,8 @@
 				white-space: nowrap;
 				text-align: right;
 			}
-			.more-jt{
+
+			.more-jt {
 				margin-left: 1rem;
 			}
 		</style>
@@ -345,6 +349,14 @@
 					if ($(this).hasClass("modal-body-active")) {
 						$(this).removeClass("modal-body-active");
 						$(".activity .activity-name").html("");
+						if ($(".activity .yhq-code").html() == "") {
+							$(".activity").addClass("activity-tjm");
+						}
+						sessionStorage.setItem("hdtype", 0);
+						sessionStorage.setItem("hdamount", 0);
+						let count = total_menoy(sessionStorage.getItem("hdtype"), sessionStorage.getItem("hdamount"), sessionStorage.getItem(
+							"yhqamount"));
+						$(".total-count").html(count);
 					} else {
 						$('input:radio[name="activity_id"]').attr("checked", false);
 						$(this).addClass("modal-body-active").siblings(".modal-body").removeClass("modal-body-active");
@@ -356,26 +368,18 @@
 								activity_id: activity
 							};
 							let data = ajaxPost(sign_activity_detail, ajaxdata);
-							if (data.status == "400") {
-								alert(data.msg);
-							} else {
-								if (data.data.type == 1 || data.data.type == "1" || data.data.type == 2 || data.data.type == "2") {
-									var count = parseFloat(parseFloat(grade_detail.price) - data.data.amount).toFixed(2);
-								}
-								if (data.data.type == 3 || data.data.type == "3") {
-									var count = parseFloat(parseFloat(grade_detail.price) + data.data.amount).toFixed(2);
-								}
-
-								$(".activity .activity-name").html(data.data.name);
-
-
-								$(".activity").removeClass("activity-tjm");
+							if (data.status == "200") {
+								sessionStorage.setItem("hdtype", data.data.type);
+								sessionStorage.setItem("hdamount", data.data.amount);
+								let count = total_menoy(sessionStorage.getItem("hdtype"), sessionStorage.getItem("hdamount"),
+									sessionStorage.getItem("yhqamount"));
 								$(".total-count").html(count);
-								sessionStorage.setItem("total_count", count);
+								$(".activity .activity-name").html(data.data.name);
+								$(".activity").removeClass("activity-tjm");
+
+							} else {
+								alert(data.msg);
 							}
-						} else {
-							$(".total-count").html(parseFloat(grade_detail.price).toFixed(2));
-							sessionStorage.setItem("total_count", parseFloat(grade_detail.price).toFixed(2));
 						}
 					}
 				})
@@ -391,6 +395,19 @@
 				var code = $("#yhq_code").val();
 				if (code) {
 					yhq_code(code)
+				} else if (code == "") {
+					sessionStorage.setItem("yhqamount", 0)
+					let count = total_menoy(sessionStorage.getItem("hdtype"), sessionStorage.getItem("hdamount"), sessionStorage.getItem(
+						"yhqamount"));
+					$(".total-count").html(count);
+					$(".yhq-code").html("");
+					$(".yhq-code").attr("yhqid", "");
+					$(".yhq-code").css({
+						"flex": "none"
+					})
+					if ($(".activity .activity-name").html() == "") {
+						$(".activity").addClass("activity-tjm");
+					}
 				}
 
 			});

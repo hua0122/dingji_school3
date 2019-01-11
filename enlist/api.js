@@ -169,7 +169,7 @@ function get_activity() {
 	}
 	let boxsrc = "<div class='boxsrc'>" + src + "</div>"
 	$("#activity").html(boxsrc);
-	if(src==""){
+	if (src == "") {
 		$("#activity").remove();
 	}
 }
@@ -188,9 +188,10 @@ function yhq_code(code) {
 		$("#yhq_code").val("");
 	} else if (data.status == "200") {
 		$("#coupon").html('<input type="hidden" name="coupon_id" id="coupon_id" value="' + data.data.id + '"/>');
-		var count = parseFloat($(".total-count").html() - data.data.amount).toFixed(2);
+		sessionStorage.setItem("yhqamount", data.data.amount)
+		let count = total_menoy(sessionStorage.getItem("hdtype"), sessionStorage.getItem("hdamount"), sessionStorage.getItem(
+			"yhqamount"));
 		$(".total-count").html(count);
-		sessionStorage.setItem("total_count", count);
 		// $("#yhq").attr('disabled', true);
 		$(".yhq-code").html(data.data.name);
 		$(".yhq-code").attr("yhqid", data.data.id);
@@ -287,7 +288,7 @@ function submit_sign() {
 	}
 
 	if (!$('#color-input-red').is(':checked')) {
-		alert('请先阅读并同意鼎吉驾校学车协议');
+		alert('请先阅读并同意易点学车学车协议');
 		return false;
 	}
 
@@ -392,7 +393,9 @@ function subsign() {
 	$(".gradearea_name").text(grade_detail.area_name)
 	$("#area_id").attr("value", grade_detail.area_id)
 	$(".total-count").text(grade_detail.price)
-
+	sessionStorage.setItem("hdtype", 0);
+	sessionStorage.setItem("hdamount", 0);
+	sessionStorage.setItem("yhqamount", 0);
 	get_activity();
 }
 
@@ -522,7 +525,7 @@ function transform_order() {
 
 	} else if (data.status == "500") {
 		alert(data.msg);
-	}  else if (data.status == "2000") {
+	} else if (data.status == "2000") {
 		$(".yzm-codedata").text(data.data.code);
 		$(".tjm-codedata").text(data.data.random);
 		$(".scok").show();
@@ -539,4 +542,18 @@ function transform_order() {
 
 function activity_detail() {
 
+}
+
+function total_menoy(hdtype, hdamount, yhqamount) {
+	let grade_detail = JSON.parse(sessionStorage.getItem("grade_detail"));
+	let price = grade_detail.price;
+	if (hdtype == 1 || hdtype == "1" || hdtype == 2 || hdtype == "2") {
+		price = parseFloat(parseFloat(price) - parseFloat(hdamount)).toFixed(2);
+	}
+	if (hdtype == 3 || hdtype == "3") {
+		price = parseFloat(parseFloat(price) + parseFloat(hdamount)).toFixed(2);
+	}
+	price = parseFloat(price - parseFloat(yhqamount)).toFixed(2);
+	sessionStorage.setItem("total_count", price);
+	return price
 }
